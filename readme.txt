@@ -6,7 +6,7 @@ Requires at least: 2.7
 Tested up to: 2.9.2
 Stable tag: 1.0
 
-Speakpress offers a way to read every kind of text you like to your visitors.
+Speakpress offers a way to read every kind of german and english text (blogposts, static pages, hidden text-fragments) to your visitor.
 
 == Description ==
 
@@ -32,6 +32,14 @@ number with your blog. We will inform you if your blog exceed our "free" criteri
 5. Don't forget to register at http://speakr.avatr.net or send a mail with your domain-name to speakr@avatr.net
 
 == Frequently Asked Questions ==
+
+= What languages are supported? =
+
+SpeakR currently supports: german and english. 
+
+= Do you offer different voices? =
+
+Yes. Both german and english language comes with a male and female voice.
 
 = How to use? =
 
