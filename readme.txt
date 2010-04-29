@@ -1,5 +1,5 @@
 === Speakpress ===
-Contributors: mo, niba
+Contributors: MOmann, niba
 Donate link: http://speakr.avatr.net/
 Tags: SpeakR, read, tts, audio, streaming
 Requires at least: 2.7
