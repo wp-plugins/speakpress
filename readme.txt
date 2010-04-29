@@ -1,4 +1,4 @@
-=== SpeakR ===
+=== Speakpress ===
 Contributors: mo, niba
 Donate link: http://speakr.avatr.net/
 Tags: SpeakR, read, tts, audio, streaming
@@ -6,7 +6,7 @@ Requires at least: 2.7
 Tested up to: 2.9.2
 Stable tag: 1.0
 
-Speakpress offers you the possibility to read every kind of text you like to your visitors.
+Speakpress offers a way to read every kind of text you like to your visitors.
 
 == Description ==
 
@@ -44,7 +44,11 @@ We need to know your domain-name to set up a proper SpeakR account. Without this
 
 == Screenshots ==
 
--none so far-
+1. The look of the SpeakR control (green theme). This is a 245px wide flash component.
+2. The settings screen (german version).
+3. The HTML editor is extended by a button. Mark a text-fragment and hit this button to enable speech output for the selected region. 
+Will also add a "Read" button below the selection.  
+
 
 == Changelog ==
 
