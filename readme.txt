@@ -10,7 +10,7 @@ Speakpress offers a way to read every kind of german and english text (blogposts
 
 == Description ==
 
-Speakpress is a wordpress plugin using SpeakR, a Flash Control enabling easy to use TTS functions to any website.
+Speakpress is a wordpress plugin using SpeakR, a Flash Control enabling easy to use TTS functions to any german or english website.
 Therfore, SpeakR queries a Webservice that synthesizes text to high quality spoken audio streams.
 
 To check out SpeakR, explore http://speakr.avatr.net 
