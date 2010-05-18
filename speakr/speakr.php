@@ -6,11 +6,11 @@
  */
 /*
 Plugin Name: SpeakR
-Plugin URI: http://speakr.avatr.net
+Plugin URI: http://speakr.avatr.net/en
 Description: Text2Speech for your website
 Author: AvatR OHG
 Version: 1.0
-Author URI: http://speakr.avatr.net
+Author URI: http://speakr.avatr.net/en
 
 
 This program is free software; you can redistribute it and/or modify
