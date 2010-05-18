@@ -14,7 +14,7 @@ Speakpress is a wordpress plugin using SpeakR, a Flash Control enabling easy to 
 Therfore, SpeakR queries a Webservice that synthesizes text to high quality spoken audio streams.
 
 To check out SpeakR, explore http://speakr.avatr.net/en 
-TO BE CLEAR: Speakpress offers a simple way to install and configure SpeakR files to any wordpress blog. 
+Speakpress offers a simple way to install and configure SpeakR files to any wordpress blog. 
 We also offer a standalone SpeakR installation. We ship the SpeakR manual (german only right now) with Speakpress
 (have a look at the "doc_de" folder).
 
@@ -29,9 +29,24 @@ number with your blog. We will inform you if your blog exceed our "free" criteri
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Active the widget under the 'Themes' -> 'Widget' menu or put <?php embed_speakr(); ?> in your template file
 4. Configure Speakpress under 'Settings' -> 'SpeakR'
-5. Don't forget to register at http://speakr.avatr.net/en or send a mail with your domain-name to speakr@avatr.net
+5. Edit a post via 'Posts' -> 'Edit'. Mark a fragment of text and hit the 'SpeakR' button. Voila - now the fragment is TTS-enabled. (NOTE: pressing the 'SpeakR' button will also add a HTML input for you).  
+6. Don't forget to register at http://speakr.avatr.net/en or send a mail with your domain-name to speakr@avatr.net
 
 == Frequently Asked Questions ==
+
+= The SpeakR widget shows up fine, but nothing happens when I hit the "Play" button. Whats wrong? =
+
+There are two common mistakes:
+
+1. You forgot to register your domain at http://speakr.avatr.net/en
+2. You forgot to add speech tags to your blog.
+
+Please make sure you did the last two steps of the installation. If something is still sort of weird: don't hesitate, CONTACT US!
+
+= How to use? =
+
+Install Speakrpress as described. Don't forget to enable speech tags for your blog posts via 'Settings' -> 'SpeakR' or using the 'SpeakR' button in the wordpress post-editor.
+Finally, request a free SpeakR account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net)
 
 = What languages are supported? =
 
@@ -40,11 +55,6 @@ SpeakR currently supports: german and english.
 = Do you offer different voices? =
 
 Yes. Both german and english language comes with a male and female voice.
-
-= How to use? =
-
-Install Speakrpress as described. Enable the widget or use the build-in editor in Wordpress.
-Finally, request a free SpeakR account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net)
 
 = Why register? =
 
