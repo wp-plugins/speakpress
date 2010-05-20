@@ -15,8 +15,7 @@ Therfore, SpeakR queries a Webservice that synthesizes text to high quality spok
 
 To check out SpeakR, explore http://speakr.avatr.net/en 
 Speakpress offers a simple way to install and configure SpeakR files to any wordpress blog. 
-We also offer a standalone SpeakR installation. We ship the SpeakR manual (german only right now) with Speakpress
-(have a look at the "doc_de" folder).
+We also offer a standalone SpeakR installation. Have a look at a detailed installation manual at http://doc.avatr.net/doku.php?id=en:speakr
 
 You need to register at http://speakr.avatr.net/en in order to run this plugin properly. We need this step
 to activate your blog domain in our webservice. The SpeakR service is free by default and will remain free until you reach a certain PI 
@@ -25,7 +24,7 @@ number with your blog. We will inform you if your blog exceed our "free" criteri
 
 == Installation ==
 
-1. Uncompress the zip file and upload the folder 'speakr' to the '/wp-content/plugins/' directory
+1. Uncompress the zip file and upload the folder 'speakr' to the '/wp-content/plugins/' directory. (DO NOT upload the entire 'speakpress' folder! DO upload the 'speakr' folder within the 'speakpress' folder!)
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Active the widget under the 'Themes' -> 'Widget' menu or put <?php embed_speakr(); ?> in your template file
 4. Configure Speakpress under 'Settings' -> 'SpeakR'
