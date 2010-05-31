@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: readr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-23 12:40+0100\n"
-"PO-Revision-Date: 2010-04-23 12:41+0100\n"
+"POT-Creation-Date: 2010-05-31 17:21+0100\n"
+"PO-Revision-Date: 2010-05-31 17:21+0100\n"
 "Last-Translator: Felix Moche <felix@moches.de>\n"
 "Language-Team: Felix Moche <felix@moches.de>\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,8 @@ msgstr ""
 #: options.php:33
 #: options.php:53
 #: options.php:54
-msgid "SpeakR options"
-msgstr "SpeakR Optionen"
+msgid "Speakpress options"
+msgstr "Speakpress Optionen"
 
 #: options.php:38
 msgid "updated"
@@ -43,7 +43,7 @@ msgid "medium"
 msgstr "mittel"
 
 #: options.php:62
-msgid "hight"
+msgid "high"
 msgstr "hoch"
 
 #: options.php:64
@@ -129,7 +129,7 @@ msgid "Interface language"
 msgstr "Oberflächensprache"
 
 #: options.php:117
-msgid "Choose your preferred language for the SpeakR interface."
+msgid "Choose your preferred language for the Speakpress interface."
 msgstr "Wählen Sie Ihre bevorzugte Sprache für die Oberfläche aus."
 
 #: options.php:121
@@ -137,16 +137,16 @@ msgid "Enable auto play?"
 msgstr "Automatische Wiedergabe aktivieren?"
 
 #: options.php:124
-msgid "When checked, SpeakR will automatically read your texts after the page is loaded."
+msgid "When checked, Speakpress will automatically read your texts after the page is loaded."
 msgstr "Wenn aktiviert, werden Ihre Texte automatisch beim Laden einer Seite vorgelesen."
 
 #: options.php:128
-msgid "Use speakr.css?"
-msgstr "speakr.css benutzen?"
+msgid "Use speakpress.css?"
+msgstr "speakpress.css benutzen?"
 
 #: options.php:131
-msgid "When checked, the plugin's css file is used. Place own speakr.css in your template folder to override."
-msgstr "Mit dieser Option wird die Datei speakr.css eingebettet. Sie können auch Ihre eigene speakr.css schreiben und im Ordner Ihres Themes platzieren."
+msgid "When checked, the plugin's css file is used. Place own speakpress.css in your template folder to override."
+msgstr "Mit dieser Option wird die Datei speakpress.css eingebettet. Sie können auch Ihre eigene speakr.css schreiben und im Ordner Ihres Themes platzieren."
 
 #: options.php:135
 msgid "Enable widget?"
@@ -173,8 +173,8 @@ msgid "Enter your widget description."
 msgstr "Geben Sie hier die Widget-Beschreibung ein."
 
 #: options.php:154
-msgid "Embed SpeakR button after every post entry?"
-msgstr "SpeakR -Button nach jedem Artikel einbetten?"
+msgid "Embed Speakpress button after every post entry?"
+msgstr "Speakpress -Button nach jedem Artikel einbetten?"
 
 #: options.php:157
 msgid "When checked, every post is wrapped between &lt;div&gt; elements and a button will be added to automatically read your posts."
@@ -189,14 +189,14 @@ msgid "Text2Speech Widget."
 msgstr "Vorlese-Widget"
 
 #: widget.php:20
-msgid "SpeakR Widget"
-msgstr "SpeakR Widget"
+msgid "Speakpress Widget"
+msgstr "Speakpress Widget"
 
-#: widget.php:54
-msgid "SpeakR"
-msgstr "SpeakR"
+#: widget.php:58
+msgid "Speakpress"
+msgstr "Speakpress"
 
-#: widget.php:57
+#: widget.php:61
 msgid "Title:"
 msgstr "Titel"
 
