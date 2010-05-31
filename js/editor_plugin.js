@@ -13,7 +13,7 @@
 		 */
 		init : function(ed, url) {
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
-			ed.addCommand('SpeakR', function() {
+			ed.addCommand('Speakpress', function() {
 				ed.execCommand('mceReplaceContent',false,'<!--StartSpeech-->{$selection}<!--EndSpeech--><input onclick="speakTags()" value="Text vorlesen" type="button" />');
 			});
 			// Register button
