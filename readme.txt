@@ -6,11 +6,11 @@ Requires at least: 2.7
 Tested up to: 3.0 RC1
 Stable tag: 1.0.1
 
-Speakpress offers a way to read every kind of german and english text (blogposts, static pages, hidden text-fragments) to your visitor.
+Speakpress offers a way to read every kind of german and english text (blog posts, static pages, hidden text-fragments) to your visitor.
 
 == Description ==
 
-Speakpress is a wordpress plugin using SpeakR, a Flash Control enabling easy to use TTS functions to any german or english website.
+Speakpress is a WordPress plugin using SpeakR, a Flash Control enabling easy to use TTS functions to any german or english website.
 Therefore, SpeakR queries a webservice that synthesizes text to high quality spoken audio streams.
 
 To check out SpeakR, explore http://speakr.avatr.net/en 
@@ -19,7 +19,7 @@ We also offer a standalone SpeakR installation. Have a look at a detailed instal
 
 You need to register at http://speakr.avatr.net/en in order to run this plugin properly. We need this step
 to activate your blog domain in our webservice. The SpeakR service is free by default and will remain free until you reach a certain PI 
-number with your blog. We will inform you if your blog exceed our "free" criterias. 
+number with your blog. We will inform you if your blog exceeds our "free" criterias. 
 
 
 == Installation ==
@@ -44,8 +44,8 @@ Please make sure you did the last two steps of the installation. If something is
 
 = How to use? =
 
-Install Speakpress as described. Don't forget to enable speech tags for your blog posts via 'Settings' -> 'Speakpress' or using the 'Speakpress' button in the wordpress post-editor.
-Finally, request a free Speakpress account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net)
+Install Speakpress as described. Don't forget to enable speech tags for your blog posts via 'Settings' -> 'Speakpress' or using the 'Speakpress' button in the WordPress editor.
+Finally, request a free SpeakR account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net).
 
 = What languages are supported? =
 
@@ -53,7 +53,7 @@ Speakpress currently supports: german and english.
 
 = Do you offer different voices? =
 
-Yes. Both german and english language comes with a male and female voice.
+Yes. Both german and english language come with a male and female voice.
 
 = Why register? =
 
