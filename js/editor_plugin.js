@@ -37,7 +37,7 @@
 			};
 		}
 	});
-	tinymce.PluginManager.add('Speakspress', tinymce.plugins.SpeakR);
+	tinymce.PluginManager.add('Speakspress', tinymce.plugins.Speakpress);
 })();
 
 
