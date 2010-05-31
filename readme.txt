@@ -24,7 +24,7 @@ number with your blog. We will inform you if your blog exceed our "free" criteri
 
 == Installation ==
 
-1. Uncompress the zip file and upload the folder 'speakpress' to the '/wp-content/plugins/' directory. (DO NOT upload the entire 'speakpress' folder! DO upload the 'speakr' folder within the 'speakpress' folder!)
+1. Uncompress the zip file and upload the folder 'speakpress' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Active the widget under the 'Themes' -> 'Widget' menu or put <?php embed_speakpress(); ?> in your template file
 4. Configure Speakpress under 'Settings' -> 'Speakpress'
