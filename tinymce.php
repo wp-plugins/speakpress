@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author Felix Moche
- * @version 1.0
+ * @version 1.0.1
  */
  
 class add_Speakpress_button {

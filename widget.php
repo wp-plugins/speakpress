@@ -2,8 +2,9 @@
 /**
  * @package Speakpress
  * @author Felix Moche
- * @version 1.0
+ * @version 1.0.1
  */
+
 add_action( 'widgets_init', 'load_widget' );
 
 function load_widget() {

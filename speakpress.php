@@ -2,14 +2,14 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0
+ * @version 1.0.1
  */
 /*
 Plugin Name: Speakpress
 Plugin URI: http://speakpress.avatr.net/en
 Description: Text2Speech for your website
 Author: AvatR OHG
-Version: 1.0
+Version: 1.0.1
 Author URI: http://speakpress.avatr.net/en
 
 
