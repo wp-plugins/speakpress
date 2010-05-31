@@ -1,15 +1,15 @@
 <?php
 /**
  * @package Speakpress
- * @author Felix Moche
- * @version 1.0.1
+ * @author AvatR OHG
+ * @version 1.0
  */
  
-class add_Speakpress_button {
+class add_speakpress_button {
 
 	var $pluginname = "Speakpress";
 	
-	function add_Speakpress_button()  {
+	function add_speakpress_button()  {
 		// Modify the version when tinyMCE plugins are changed.
 		add_filter('tiny_mce_version', array (&$this, 'change_tinymce_version') );
 		// init process for button control
@@ -35,7 +35,7 @@ class add_Speakpress_button {
 	
 	// Load the TinyMCE plugin : editor_plugin.js (wp2.5)
 	function add_tinymce_plugin($plugin_array) {    
-		$plugin_array[$this->pluginname] =  SPEAKR_URLPATH.'js/editor_plugin.js';
+		$plugin_array[$this->pluginname] =  SPEAKPRESS_URLPATH.'js/editor_plugin.js';
 		return $plugin_array;
 	}
 	
@@ -43,5 +43,5 @@ class add_Speakpress_button {
 		return ++$version;
 	}
 }
-$tinymce_button = new add_Speakpress_button ();
+$tinymce_button = new add_speakpress_button();
 ?>

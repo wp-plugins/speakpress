@@ -32,12 +32,12 @@
 					longname  : 'Speakpress',
 					author 	  : 'Felix Moche',
 					authorurl : 'http://felix.moches.de',
-					infourl   : 'http://speakr.avatr.net',
-					version   : "1.0.1"
+					infourl   : 'http://www.avatr.net',
+					version   : "1.0"
 			};
 		}
 	});
-	tinymce.PluginManager.add('Speakspress', tinymce.plugins.Speakpress);
+	tinymce.PluginManager.add('Speakpress', tinymce.plugins.Speakpress);
 })();
 
 

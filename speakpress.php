@@ -35,7 +35,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 if ( ! defined( 'PLUGINDIR' ) )
 	define( 'PLUGINDIR', 'wp-content/plugins' );
 
-define('SPEAKR_URLPATH', WP_PLUGIN_URL.'/'.plugin_basename( dirname(__FILE__) ).'/' );
+define('SPEAKPRESS_URLPATH', WP_PLUGIN_URL.'/'.plugin_basename( dirname(__FILE__) ).'/' );
 
 include_once (dirname (__FILE__)."/quicktag.php");
 include_once (dirname (__FILE__)."/tinymce.php");
