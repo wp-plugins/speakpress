@@ -3,18 +3,18 @@ Contributors: MOmann, niba
 Donate link: http://speakr.avatr.net/en
 Tags: SpeakR, read, tts, audio, streaming
 Requires at least: 2.7
-Tested up to: 3.0 RC1
-Stable tag: 1.0.1
+Tested up to: 2.9.2
+Stable tag: 1.0
 
 Speakpress offers a way to read every kind of german and english text (blogposts, static pages, hidden text-fragments) to your visitor.
 
 == Description ==
 
 Speakpress is a wordpress plugin using SpeakR, a Flash Control enabling easy to use TTS functions to any german or english website.
-Therefore, SpeakR queries a webservice that synthesizes text to high quality spoken audio streams.
+Therfore, SpeakR queries a Webservice that synthesizes text to high quality spoken audio streams.
 
 To check out SpeakR, explore http://speakr.avatr.net/en 
-Speakpress offers a simple way to install and configure SpeakR files to any WordPress blog. 
+Speakpress offers a simple way to install and configure SpeakR files to any wordpress blog. 
 We also offer a standalone SpeakR installation. Have a look at a detailed installation manual at http://doc.avatr.net/doku.php?id=en:speakr
 
 You need to register at http://speakr.avatr.net/en in order to run this plugin properly. We need this step
@@ -26,14 +26,14 @@ number with your blog. We will inform you if your blog exceed our "free" criteri
 
 1. Uncompress the zip file and upload the folder 'speakpress' to the '/wp-content/plugins/' directory. (DO NOT upload the entire 'speakpress' folder! DO upload the 'speakr' folder within the 'speakpress' folder!)
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Active the widget under the 'Themes' -> 'Widget' menu or put <?php embed_speakpress(); ?> in your template file
-4. Configure Speakpress under 'Settings' -> 'Speakpress'
-5. Edit a post via 'Posts' -> 'Edit'. Mark a fragment of text and hit the 'Speakpress' button. Voila - now the fragment is TTS-enabled. (NOTE: pressing the 'Speakpress' button will also add a HTML input for you).  
+3. Active the widget under the 'Themes' -> 'Widget' menu or put <?php embed_speakr(); ?> in your template file
+4. Configure Speakpress under 'Settings' -> 'SpeakR'
+5. Edit a post via 'Posts' -> 'Edit'. Mark a fragment of text and hit the 'SpeakR' button. Voila - now the fragment is TTS-enabled. (NOTE: pressing the 'SpeakR' button will also add a HTML input for you).  
 6. Don't forget to register at http://speakr.avatr.net/en or send a mail with your domain-name to speakr@avatr.net
 
 == Frequently Asked Questions ==
 
-= The Speakpress widget shows up fine, but nothing happens when I hit the "Play" button. Whats wrong? =
+= The SpeakR widget shows up fine, but nothing happens when I hit the "Play" button. Whats wrong? =
 
 There are two common mistakes:
 
@@ -44,12 +44,12 @@ Please make sure you did the last two steps of the installation. If something is
 
 = How to use? =
 
-Install Speakpress as described. Don't forget to enable speech tags for your blog posts via 'Settings' -> 'Speakpress' or using the 'Speakpress' button in the wordpress post-editor.
-Finally, request a free Speakpress account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net)
+Install Speakrpress as described. Don't forget to enable speech tags for your blog posts via 'Settings' -> 'SpeakR' or using the 'SpeakR' button in the wordpress post-editor.
+Finally, request a free SpeakR account at http://speakr.avatr.net/en or request one via mail (speakr@avatr.net)
 
 = What languages are supported? =
 
-Speakpress currently supports: german and english. 
+SpeakR currently supports: german and english. 
 
 = Do you offer different voices? =
 
@@ -67,10 +67,6 @@ We need to know your domain-name to set up a proper SpeakR account. Without this
 Will also add a "Read" button below the selection.  
 
 == Changelog ==
-
-= 1.0.1 =
-* Some bugfixes
-* Consistent options and variable names
 
 = 1.0 =
 * Initial release with SpeakR version 0.7.3
