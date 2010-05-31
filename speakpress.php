@@ -86,12 +86,13 @@ add_filter('the_content', 'add_speakpress_button');
 function add_speakpress_button($content) {
 	global $post;
 	$speakpress_options = get_option('speakpress_options');
+	$buttoncaption = $speakpress_options['button_caption'];
 	if ( !is_feed() && !is_page() && intval($speakpress_options['speakpress_always_show']) ) {
 	$postid = $post->ID;
 	$start = '<div class="speakpress_container" id="speakpress-'.$postid.'">';
 	$start .= $content;
 	$start .= "\n"
-		. '</div><input class="speakpress_btn" type="button" onclick="speakId(\'speakpress-' . $postid .'\')" value="Text vorlesen" />'
+		. '</div><input class="speakpress_btn" type="button" onclick="speakId(\'speakpress-' . $postid .'\')" value="'. $buttoncaption .'" />'
 		. "\n";			
 	return $start;
 	}
@@ -116,7 +117,8 @@ function speakpress_init() {
 		'use_speakpress_widget' => 1,
 		'speakpress_always_show' => 0,
 		'enable_widget_description' => 1,
-		'widget_description' => 'Click the read-button to activate this'
+		'widget_description' => 'Click the read-button to activate this',
+		'button_caption' => 'Read'
 	);
 	add_option('speakpress_options', $speakpress_options);
 }

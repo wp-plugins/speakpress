@@ -25,6 +25,7 @@ if (!empty($_POST['Submit'])) {
 	$speakpress_options['use_speakpress_css'] = (bool) @$_POST['use_speakpress_css'];
 	$speakpress_options['use_speakpress_widget'] = (bool) @$_POST['use_speakpress_widget'];
 	$speakpress_options['enable_widget_description'] = (bool) @$_POST['enable_widget_description'];
+	$speakpress_options['button_caption'] = addslashes(@$_POST['button_caption']);
 	$speakpress_options['widget_description'] = addslashes(@$_POST['widget_description']);
 	
 	$update_speakpress_queries = array();
@@ -157,7 +158,13 @@ $speakpress_options = get_option('speakpress_options');
 			<td>
 				<input type="checkbox" name="speakpress_always_show" value="1" <?php checked($speakpress_options['speakpress_always_show']); ?>>
 				<?php _e('When checked, every post is wrapped between &lt;div&gt; elements and a button will be added to automatically read your posts.', 'speakpress'); ?>
-			</td>			
+			</td>	
+		</tr>
+		<tr>
+			<th scope="row" valign="top"><?php _e('Button caption', 'speakpress'); ?></th>
+			<td>
+				<input type="text" name="button_caption" value="<?php echo stripslashes(htmlspecialchars($speakpress_options['button_caption'])); ?>" size="90" /><br />
+				<?php _e('Enter caption for Speakpress buttons.', 'speakpress'); ?>
 		</tr>
 	</table>
 	<p class="submit">

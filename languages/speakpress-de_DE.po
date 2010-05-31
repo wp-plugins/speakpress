@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: readr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-31 17:21+0100\n"
-"PO-Revision-Date: 2010-05-31 17:21+0100\n"
+"POT-Creation-Date: 2010-05-31 18:35+0100\n"
+"PO-Revision-Date: 2010-05-31 18:35+0100\n"
 "Last-Translator: Felix Moche <felix@moches.de>\n"
 "Language-Team: Felix Moche <felix@moches.de>\n"
 "MIME-Version: 1.0\n"
@@ -15,172 +15,180 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: options.php:33
-#: options.php:53
+#: options.php:34
 #: options.php:54
+#: options.php:55
 msgid "Speakpress options"
 msgstr "Speakpress Optionen"
 
-#: options.php:38
+#: options.php:39
 msgid "updated"
 msgstr "aktualisiert"
 
-#: options.php:43
+#: options.php:44
 msgid "No options updated"
 msgstr "Keine Optionen aktualisiert"
 
-#: options.php:57
+#: options.php:58
 msgid "Quality"
 msgstr "Qualität"
 
-#: options.php:60
+#: options.php:61
 msgid "low"
 msgstr "niedrig"
 
-#: options.php:61
-#: options.php:72
+#: options.php:62
+#: options.php:73
 msgid "medium"
 msgstr "mittel"
 
-#: options.php:62
+#: options.php:63
 msgid "high"
 msgstr "hoch"
 
-#: options.php:64
+#: options.php:65
 msgid "Choose the quality of the downloaded stream."
 msgstr "Wählen Sie die Qualität des Audiostreams."
 
-#: options.php:68
+#: options.php:69
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: options.php:71
+#: options.php:72
 msgid "slow"
 msgstr "langsam"
 
-#: options.php:73
+#: options.php:74
 msgid "fast"
 msgstr "schnell"
 
-#: options.php:75
+#: options.php:76
 msgid "Choose the speed."
 msgstr "Wählen Sie die Geschwindigkeit der Stimme."
 
-#: options.php:79
+#: options.php:80
 msgid "Gender for voice"
 msgstr "Geschlecht der Stimme"
 
-#: options.php:82
+#: options.php:83
 msgid "male"
 msgstr "männlich"
 
-#: options.php:83
+#: options.php:84
 msgid "female"
 msgstr "weiblich"
 
-#: options.php:85
+#: options.php:86
 msgid "Choose if you want to hear a male or female voice."
 msgstr "Wählen Sie hier, ob Sie eine weibliche oder männliche Stimme hören wollen."
 
-#: options.php:89
+#: options.php:90
 msgid "Theme"
 msgstr "Farbschema"
 
-#: options.php:92
+#: options.php:93
 msgid "cyan"
 msgstr "cyan"
 
-#: options.php:93
+#: options.php:94
 msgid "green"
 msgstr "grün"
 
-#: options.php:94
+#: options.php:95
 msgid "orange"
 msgstr "orange"
 
-#: options.php:95
+#: options.php:96
 msgid "white"
 msgstr "weiss"
 
-#: options.php:97
+#: options.php:98
 msgid "Choose your colour theme."
 msgstr "Wählen Sie Ihr Farbschema."
 
-#: options.php:101
+#: options.php:102
 msgid "Language"
 msgstr "Sprache"
 
-#: options.php:104
-#: options.php:114
+#: options.php:105
+#: options.php:115
 msgid "english"
 msgstr "Englisch"
 
-#: options.php:105
-#: options.php:115
+#: options.php:106
+#: options.php:116
 msgid "german"
 msgstr "Deutsch"
 
-#: options.php:107
+#: options.php:108
 msgid "Choose your preferred language for your texts."
 msgstr "Wählen Sie Ihre bevorzugte Sprache aus."
 
-#: options.php:111
+#: options.php:112
 msgid "Interface language"
 msgstr "Oberflächensprache"
 
-#: options.php:117
+#: options.php:118
 msgid "Choose your preferred language for the Speakpress interface."
 msgstr "Wählen Sie Ihre bevorzugte Sprache für die Oberfläche aus."
 
-#: options.php:121
+#: options.php:122
 msgid "Enable auto play?"
 msgstr "Automatische Wiedergabe aktivieren?"
 
-#: options.php:124
+#: options.php:125
 msgid "When checked, Speakpress will automatically read your texts after the page is loaded."
 msgstr "Wenn aktiviert, werden Ihre Texte automatisch beim Laden einer Seite vorgelesen."
 
-#: options.php:128
+#: options.php:130
 msgid "Use speakpress.css?"
 msgstr "speakpress.css benutzen?"
 
-#: options.php:131
+#: options.php:133
 msgid "When checked, the plugin's css file is used. Place own speakpress.css in your template folder to override."
 msgstr "Mit dieser Option wird die Datei speakpress.css eingebettet. Sie können auch Ihre eigene speakr.css schreiben und im Ordner Ihres Themes platzieren."
 
-#: options.php:135
+#: options.php:138
 msgid "Enable widget?"
 msgstr "Widget aktivieren?"
 
-#: options.php:138
+#: options.php:141
 msgid "Check to enable the widget and go to Theme-&gt;Widgets to activate it."
 msgstr "Aktivieren Sie diese Option, um das Widget zu aktivieren."
 
-#: options.php:142
+#: options.php:145
 msgid "Enable widget description?"
 msgstr "Widget-Beschreibung aktivieren?"
 
-#: options.php:145
+#: options.php:148
 msgid "Check to enable a custom description on the widget."
 msgstr "Aktivieren Sie diese Option, um eine kurze Beschreibung für das Widget zu aktivieren."
 
-#: options.php:148
+#: options.php:151
 msgid "Widget description"
 msgstr "Widget-Beschreibung"
 
-#: options.php:151
+#: options.php:154
 msgid "Enter your widget description."
 msgstr "Geben Sie hier die Widget-Beschreibung ein."
 
-#: options.php:154
+#: options.php:157
 msgid "Embed Speakpress button after every post entry?"
 msgstr "Speakpress -Button nach jedem Artikel einbetten?"
 
-#: options.php:157
+#: options.php:160
 msgid "When checked, every post is wrapped between &lt;div&gt; elements and a button will be added to automatically read your posts."
 msgstr "Wenn aktiviert, wird jedem Artikel ein Vorlese-Button hinzugefügt. "
 
-#: options.php:162
+#: options.php:164
+msgid "Button caption"
+msgstr "Buttontext"
+
+#: options.php:167
+msgid "Enter caption for Speakpress buttons."
+msgstr "Geben Sie hier den Text ein, der auf Speakpress-Buttons erscheinen soll."
+
+#: options.php:171
 msgid "Save options"
 msgstr "Optionen speichern"
 
