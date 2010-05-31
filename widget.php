@@ -1,45 +1,45 @@
 <?php
 /**
- * @package SpeakR
+ * @package Speakpress
  * @author Felix Moche
  * @version 1.0
  */
 add_action( 'widgets_init', 'load_widget' );
 
 function load_widget() {
-	$speakr_options = get_option('speakr_options');
-	if ( isset($speakr_options['use_speakr_widget']) && !intval($speakr_options['use_speakr_widget']) )
+	$speakpress_options = get_option('speakpress_options');
+	if ( isset($speakpress_options['use_speakpress_widget']) && !intval($speakpress_options['use_speakpress_widget']) )
 	return;	
-	else { register_widget( 'SpeakRwidget' );}
+	else { register_widget( 'Speakpresswidget' );}
 }
 
-class SpeakRwidget extends WP_Widget {
-	function SpeakRwidget() {
-		$widget_ops = array( 'classname' => 'speakr', 'description' => __('Text2Speech Widget.', 'speakr') );
-		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'speakr-widget' );
-		$this->WP_Widget( 'speakr-widget', __('SpeakR Widget', 'speakr'), $widget_ops, $control_ops );
+class Speakpresswidget extends WP_Widget {
+	function Speakpresswidget() {
+		$widget_ops = array( 'classname' => 'speakpress', 'description' => __('Text2Speech Widget.', 'speakpress') );
+		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'speakpress-widget' );
+		$this->WP_Widget( 'speakpress-widget', __('Speakpress Widget', 'speakpress'), $widget_ops, $control_ops );
 	}
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters('widget_title', $instance['title'] );
-		$speakr_options = get_option('speakr_options');
-		$quality = $speakr_options['quality'];
-		$speed = $speakr_options['speed'];
-		$language = $speakr_options['language'];
-		$theme = $speakr_options['theme'];
-		$gender = $speakr_options['gender'];
-		$localechain = $speakr_options['localechain'];
-		if ( isset($speakr_options['autostart']) && intval($speakr_options['autostart']) )
+		$speakpress_options = get_option('speakpress_options');
+		$quality = $speakpress_options['quality'];
+		$speed = $speakpress_options['speed'];
+		$language = $speakpress_options['language'];
+		$theme = $speakpress_options['theme'];
+		$gender = $speakpress_options['gender'];
+		$localechain = $speakpress_options['localechain'];
+		if ( isset($speakpress_options['autostart']) && intval($speakpress_options['autostart']) )
 			$autostart = 'true';
 		else
 			$autostart = 'false';	
 		echo "\n\n" . $before_widget . $before_title . $instance['title'] . $after_title . "\n";
-		echo '<script type="text/javascript"> var flashvars = {}; flashvars.defaultSpeed = "'.$speed.'"; flashvars.defaultLanguage = "'.$language.'";flashvars.localeChain = "'.$localechain.'";flashvars.autostart = "'.$autostart.'"; flashvars.defaultGender = "'.$gender.'";flashvars.defaultQuality = "'.$quality.'"; flashvars.theme = "'.$theme.'";flashvars.installFolder = "'.WP_PLUGIN_URL.'/speakr"; installSpeakR("'.WP_PLUGIN_URL.'/speakr/SpeakR.swf", flashvars); </script>';
+		echo '<script type="text/javascript"> var flashvars = {}; flashvars.defaultSpeed = "'.$speed.'"; flashvars.defaultLanguage = "'.$language.'";flashvars.localeChain = "'.$localechain.'";flashvars.autostart = "'.$autostart.'"; flashvars.defaultGender = "'.$gender.'";flashvars.defaultQuality = "'.$quality.'"; flashvars.theme = "'.$theme.'";flashvars.installFolder = "'.WP_PLUGIN_URL.'/speakpress"; installSpeakR("'.WP_PLUGIN_URL.'/speakpress/SpeakR.swf", flashvars); </script>';
 		echo '<div id="flashSpeakR"><a href="http://www.adobe.com/go/getflashplayer"
 target="_blank"> <img src="http://www.adobe.com/macromedia/
 style_guide/images/160x41_Get_Flash_Player.jpg" alt="Flash Player herunterladen"/>
 </a> </div>';
-		if (intval($speakr_options['enable_widget_description'])) echo '<p class="speakr_description">' . $speakr_options['widget_description'] . '</p>';
+		if (intval($speakpress_options['enable_widget_description'])) echo '<p class="speakr_description">' . $speakpress_options['widget_description'] . '</p>';
 		echo $after_widget . "\n\n";
 	}
 	
@@ -55,7 +55,7 @@ style_guide/images/160x41_Get_Flash_Player.jpg" alt="Flash Player herunterladen"
 		return $instance;
 	}
 	function form( $instance ) {
-		$defaults = array( 'title' => __('SpeakR', 'speakr') );
+		$defaults = array( 'title' => __('Speakpress', 'speakpress') );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'hybrid'); ?></label>
