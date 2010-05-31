@@ -1,8 +1,8 @@
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('SpeakR');
+	tinymce.PluginManager.requireLangPack('Speakpress');
 	
-	tinymce.create('tinymce.plugins.SpeakR', {
+	tinymce.create('tinymce.plugins.Speakpress', {
 		/**
 		 * Initializes the plugin, this will be executed after the plugin has been created.
 		 * This call is done before the editor instance has finished it's initialization so use the onInit event
@@ -17,27 +17,27 @@
 				ed.execCommand('mceReplaceContent',false,'<!--StartSpeech-->{$selection}<!--EndSpeech--><input onclick="speakTags()" value="Text vorlesen" type="button" />');
 			});
 			// Register button
-			ed.addButton('SpeakR', {
+			ed.addButton('Speakpress', {
 				title : 'Vorlesen',
-				cmd : 'SpeakR',
-				image : url + '/../speakr.png'
+				cmd : 'Speakpress',
+				image : url + '/../speakpress.png'
 			});
 			// Add a node change handler, selects the button in the UI when a image is selected
 			ed.onNodeChange.add(function(ed, cm, n) {
-				cm.setActive('SpeakR', n.nodeName == 'IMG');
+				cm.setActive('Speakpress', n.nodeName == 'IMG');
 			});
 		},
 		getInfo : function() {
 			return {
-					longname  : 'SpeakR',
+					longname  : 'Speakpress',
 					author 	  : 'Felix Moche',
 					authorurl : 'http://felix.moches.de',
-					infourl   : 'http://www.avatr.net',
-					version   : "1.0"
+					infourl   : 'http://speakr.avatr.net',
+					version   : "1.0.1"
 			};
 		}
 	});
-	tinymce.PluginManager.add('SpeakR', tinymce.plugins.SpeakR);
+	tinymce.PluginManager.add('Speakspress', tinymce.plugins.SpeakR);
 })();
 
 
