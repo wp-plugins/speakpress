@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0.1
+ * @version 1.0.2
  */
 $base_name = plugin_basename('speakpress/options.php');
 $base_page = 'admin.php?page='.$base_name;

@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author Felix Moche
- * @version 1.0.1
+ * @version 1.0.2
  */
 function speakpress_quicktaginit() {
 	global $pagenow;

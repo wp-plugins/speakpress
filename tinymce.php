@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0
+ * @version 1.0.2
  */
  
 class add_speakpress_button {

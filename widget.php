@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author Felix Moche
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 add_action( 'widgets_init', 'load_widget' );
