@@ -71,6 +71,7 @@ Will also add a "Read" button below the selection.
 = 1.0.1 =
 * Some bugfixes
 * Consistent options and variable names
+* renamed function embed_speakr() to embed_speakpress()
 
 = 1.0 =
 * Initial release with SpeakR version 0.7.3
