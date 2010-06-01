@@ -78,7 +78,7 @@ function speakpress_stylesheets() {
 wp_enqueue_script('speakpress_flashPluginInterface', WP_PLUGIN_URL . '/speakpress/js/flashPluginInterface.js','','1.0',false);
 wp_enqueue_script('speakpress_swfobject', WP_PLUGIN_URL . '/speakpress/js/swfobject.js','','1.0',false);
 wp_enqueue_script('speakpress_flashEvents', WP_PLUGIN_URL . '/speakpress/js/flashEvents.js','','1.0',false);
-wp_enqueue_script('speakpress_install', WP_PLUGIN_URL . '/speakpress/js/speakpressInstall.js','','1.0',false);
+wp_enqueue_script('speakpress_install', WP_PLUGIN_URL . '/speakpress/js/speakrInstall.js','','1.0',false);
 
 //automatically insert button after each post
 add_filter('the_content', 'add_speakpress_button');
