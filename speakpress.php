@@ -2,14 +2,14 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0.2
+ * @version 1.0.3
  */
 /*
 Plugin Name: Speakpress
 Plugin URI: http://speakpress.avatr.net/en
 Description: Text2Speech for your website
 Author: AvatR OHG
-Version: 1.0.1
+Version: 1.0.3
 Author URI: http://speakpress.avatr.net/en
 
 
@@ -36,30 +36,39 @@ if ( ! defined( 'PLUGINDIR' ) )
 	define( 'PLUGINDIR', 'wp-content/plugins' );
 
 define('SPEAKPRESS_URLPATH', WP_PLUGIN_URL.'/'.plugin_basename( dirname(__FILE__) ).'/' );
+$plugin = plugin_basename(__FILE__);
 
 include_once (dirname (__FILE__)."/quicktag.php");
 include_once (dirname (__FILE__)."/tinymce.php");
 include_once (dirname (__FILE__)."/widget.php");
 
 //uninstall
-register_deactivation_hook(__FILE__,'speakpress_deactivate');
-
-function speakpress_deactivate(){
-	//delete_transient('speakpress_transient');
+function speakpress_uninstall(){
 	delete_option('speakpress_options');
 }
 
-// adding admin menus
-add_action('admin_menu', 'speakpress_add_pages');
+if (is_admin()){
+	add_action('admin_menu', 'speakpress_add_pages');
+	//add_action('wp_print_styles', 'speakpress_stylesheets');
+	add_filter( 'plugin_action_links_' .$plugin, 'set_speakr_meta');
+	register_uninstall_hook(__FILE__,'speakpress_uninstall');
+}
 
-function speakpress_add_pages() {
+//adding admin menus
+function speakpress_add_pages(){
     // Add a new submenu under Options:
     add_options_page('Speakpress', 'Speakpress', 'manage_options', 'speakpress/options.php');
 }
 
-// custom CSS
-add_action('wp_print_styles', 'speakpress_stylesheets');
-function speakpress_stylesheets() {
+//set meta
+function set_speakr_meta($links){
+	$settings_link = '<a href="options-general.php?page=speakpress/options.php">' . __('Settings') . '</a>';
+	array_unshift( $links, $settings_link );
+ 	return $links;
+}
+
+//custom CSS
+function speakpress_stylesheets(){
 	$speakpress_options = get_option('speakpress_options');
 
 	if ( isset($speakpress_options['use_speakpress_css']) && !intval($speakpress_options['use_speakpress_css']) )
@@ -71,19 +80,14 @@ function speakpress_stylesheets() {
 	} else {
 		$css_file = plugins_url('speakpress.css', __FILE__);
 	}
-	wp_enqueue_style('speakpress', $css_file, false, '1.0', 'all');
+	if (!is_admin())
+		wp_enqueue_style('speakpress', $css_file, false, '1.0', 'all');
 }
-
-// JS integration
-wp_enqueue_script('speakpress_flashPluginInterface', WP_PLUGIN_URL . '/speakpress/js/flashPluginInterface.js','','1.0',false);
-wp_enqueue_script('speakpress_swfobject', WP_PLUGIN_URL . '/speakpress/js/swfobject.js','','1.0',false);
-wp_enqueue_script('speakpress_flashEvents', WP_PLUGIN_URL . '/speakpress/js/flashEvents.js','','1.0',false);
-wp_enqueue_script('speakpress_install', WP_PLUGIN_URL . '/speakpress/js/speakrInstall.js','','1.0',false);
 
 //automatically insert button after each post
 add_filter('the_content', 'add_speakpress_button');
 
-function add_speakpress_button($content) {
+function add_speakpress_button($content){
 	global $post;
 	$speakpress_options = get_option('speakpress_options');
 	$buttoncaption = $speakpress_options['button_caption'];
@@ -99,12 +103,23 @@ function add_speakpress_button($content) {
 	else return $content;
 }
 
+//JS integration
+add_action('wp_print_scripts', 'speakpress_scripts_loader');
+
+function speakpress_scripts_loader(){
+	if (!is_admin()){
+		wp_enqueue_script('speakpress_flashPluginInterface', WP_PLUGIN_URL . '/speakpress/js/flashPluginInterface.js','','1.0',false);
+		wp_enqueue_script('speakpress_swfobject', WP_PLUGIN_URL . '/speakpress/js/swfobject.js','','1.0',false);
+		wp_enqueue_script('speakpress_flashEvents', WP_PLUGIN_URL . '/speakpress/js/flashEvents.js','','1.0',false);
+		wp_enqueue_script('speakpress_install', WP_PLUGIN_URL . '/speakpress/js/speakrInstall.js','','1.0',false);
+	}
+}
+
 //init
 add_action('admin_init', 'speakpress_init');
-function speakpress_init() {
+function speakpress_init(){
 	$plugin_dir = basename(dirname(__FILE__));
-	load_plugin_textdomain( 'speakpress', 'wp-content/plugins/'. 
-	$plugin_dir.'/languages', $plugin_dir.'/languages' );
+	load_plugin_textdomain( 'speakpress', 'wp-content/plugins/'. $plugin_dir.'/languages', $plugin_dir.'/languages' );
 	$speakpress_options = array(
 		'theme' => 'white',
 		'autostart' => 1,
@@ -117,10 +132,33 @@ function speakpress_init() {
 		'use_speakpress_widget' => 1,
 		'speakpress_always_show' => 0,
 		'enable_widget_description' => 1,
+		'domain_activated' => 0,
+		'activation_request_sent' => 0,
 		'widget_description' => 'Click the read-button to activate this',
 		'button_caption' => 'Read'
 	);
 	add_option('speakpress_options', $speakpress_options);
+	speakpress_admin_warning();
+}
+
+//warning if domain not activated yet
+function speakpress_admin_warning(){
+	$speakpress_options = get_option('speakpress_options');
+	if ( isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']) )
+		$sp_requested = 1;
+	else
+		$sp_requested = 0;
+	if ( isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']) )	
+		$sp_activated = 1;
+	else
+		$sp_activated = 0;
+	function speakpress_warning(){
+		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.').'</strong> '.sprintf(__('You must <a href="%1$s">activate your domain</a> for it to work.'), 'options-general.php?page=speakpress/options.php').'</p></div>';
+	}
+	if (($sp_requested == 0) && ($sp_activated == 0)) {
+		add_action('admin_notices', 'speakpress_warning');
+	}
+	return;
 }
 
 //embedding
@@ -131,8 +169,7 @@ function embed_speakpress(){
 	$language = $speakpress_options['language'];
 	$theme = $speakpress_options['theme'];
 	$gender = $speakpress_options['gender'];
-	$localechain = $speakpress_options['localechain'];
-	
+	$localechain = $speakpress_options['localechain'];	
 	if ( isset($speakpress_options['autostart']) && intval($speakpress_options['autostart']) )
 		$autostart = 'true';
 	else
@@ -140,8 +177,7 @@ function embed_speakpress(){
 	$output = '<script type="text/javascript"> var flashvars = {}; flashvars.defaultSpeed = "'.$speed.'"; flashvars.defaultLanguage = "'.$language.'";flashvars.localeChain = "'.$localechain.'";flashvars.autostart = "'.$autostart.'"; flashvars.defaultGender = "'.$gender.'";flashvars.defaultQuality = "'.$quality.'"; flashvars.theme = "'.$theme.'";flashvars.installFolder = "'.WP_PLUGIN_URL.'/speakpress"; installSpeakR("'.WP_PLUGIN_URL.'/speakpress/SpeakR.swf", flashvars); </script>';
 	$output.= '<div id="flashSpeakR"><a href="http://www.adobe.com/go/getflashplayer"
 target="_blank"> <img src="http://www.adobe.com/macromedia/
-style_guide/images/160x41_Get_Flash_Player.jpg" alt="Flash Player herunterladen"/>
+style_guide/images/160x41_Get_Flash_Player.jpg" alt="' . __('Download Flash player','speakpress') .'"/>
 </a> </div>';
 	echo $output;
-}
-?>
+}?>
