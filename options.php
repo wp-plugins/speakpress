@@ -222,16 +222,16 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 	<p class="submit">
 		<input type="submit" name="Submit" class="button" value="<?php _e('Save options', 'speakpress'); ?>" />
 	</p>
+</form>
 <div style="background-color:#FFFFE0;border:1px solid #E6DB55;margin:5px 0 15px;padding:0 0.6em;">
 	<p style="margin:0.5em 0;padding:2px;"><?php _e('You can find news about Speakpress at <a href="http://twitter.com/AvatRDev">our Twitter channel</a> and via hashtag <a href="http://twitter.com/search?q=%23Speakpress">#Speakpress</a>.','speakpress');
 	_e('<br />Speakpress is free - but we would really appriciate it if you would donate to help developing this plugin.','speakpress'); ?>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<input type="hidden" name="cmd" value="_s-xclick">
 			<input type="hidden" name="hosted_button_id" value="PRU68HXRTP2H4">
-			<input type="image" src="https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="<?php _e('Donate via Paypal','speakpress');?>">
+			<input type="image" src="https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submitpp" alt="<?php _e('Donate via Paypal','speakpress');?>">
 			<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
 	</p>
 </div>
-</form>
 </div>
