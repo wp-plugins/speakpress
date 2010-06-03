@@ -2,17 +2,18 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0.2
+ * @version 1.0.3
  */
+ 
 $base_name = plugin_basename('speakpress/options.php');
 $base_page = 'admin.php?page='.$base_name;
 $mode = trim(@$_GET['mode']);
 $speakpress_settings = array('speakpress_options');
-	$plugin_dir = basename(dirname(__FILE__));
-	load_plugin_textdomain( 'speakpress', 'wp-content/plugins/' . $plugin_dir, $plugin_dir );
-// Update Options
-if (!empty($_POST['Submit'])) {
+$plugin_dir = basename(dirname(__FILE__));
+load_plugin_textdomain( 'speakpress', 'wp-content/plugins/' . $plugin_dir, $plugin_dir );
 
+// update options
+if (!empty($_POST['Submit'])) {
 	$speakpress_options = array();
 	$speakpress_options['quality'] = intval(@$_POST['quality']);
 	$speakpress_options['speed'] = intval(@$_POST['speed']);
@@ -27,7 +28,8 @@ if (!empty($_POST['Submit'])) {
 	$speakpress_options['enable_widget_description'] = (bool) @$_POST['enable_widget_description'];
 	$speakpress_options['button_caption'] = addslashes(@$_POST['button_caption']);
 	$speakpress_options['widget_description'] = addslashes(@$_POST['widget_description']);
-	
+	$test = get_option('speakpress_options');
+	$speakpress_options['activation_request_sent'] = $test['activation_request_sent'];
 	$update_speakpress_queries = array();
 	$update_speakpress_text = array();
 	$update_speakpress_queries[] = update_option('speakpress_options', $speakpress_options);
@@ -44,15 +46,65 @@ if (!empty($_POST['Submit'])) {
 		$text = '<font color="red">'.__('No options updated', 'speakpress').'</font>';
 	}
 }
-
 $speakpress_options = get_option('speakpress_options');
+if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p></div>';
 ?>
-<?php if (!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
-<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+
 <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2><?php _e('Speakpress options', 'speakpress'); ?></h2>
-	<h3><?php _e('Speakpress options', 'speakpress'); ?></h3>	
+	<h2><?php _e('Speakpress options', 'speakpress'); ?></h2>	
+	<h3><?php _e('Activate domain', 'speakpress'); ?></h3>
+	<?php
+	//get domain and admin-email
+	$sp_adminemail = get_bloginfo('admin_email');
+	$sp_blogurl = get_bloginfo('url');
+	if ( isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']) )	
+		$sp_activated = 1;
+	else
+		$sp_activated = 0;
+	//show activation form if not already activated
+	if ($sp_activated == 1)
+		_e('Domain activated, Speakpress can be used.','speakpress');
+	//activation request sent but not activated yet
+	elseif (isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']))
+		_e('Domain activation request sent. Please be patient.','speakpress');
+	//not activated	
+	else {
+		if (isset($_REQUEST['email'])){
+			$email = $_REQUEST['email'] ;
+			$subject = 'Speakpress activation request' ;
+			$message = $_REQUEST['domain'] ;
+			if (mail( "speakr@avatr.net", "$subject",$message, "From: $email" )) {
+				$text = '<font color="green">'.__('Activation request sent.','speakpress').'</font>';
+				$speakpress_options['activation_request_sent'] = 1;
+				update_option('speakpress_options',$speakpress_options);
+			}
+			else
+				$text = '<font color="red">'.__('Sending activation request failed. Please manually send an email with your domain to speakr@avatr.net.','speakpress').'</font>';
+			echo '<div class="updated fade"><p>'.$text.'</p></div>';
+		}
+		else { 
+			_e('Your domain must be activated in order to use Speakpress. <br />Please use the following form to request activation and wait until we accepted your request.','speakpress');?>
+			<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+			<table class="form-table">
+				<tr>
+					<th>Email:</th>
+					<td><input name="email" type="text" value="<?php echo $sp_adminemail ?>" /></td>
+				</tr>
+				<tr>
+					<th>Domain:</th>
+					<td><input name="domain" type="text" value="<?php echo $sp_blogurl; ?>" /></td>
+				</tr>
+			</table>
+			<p class="submit">
+				<input type="submit" class="button" value="<?php _e('Activate domain', 'speakpress'); ?>" />
+			</p>
+			</form>
+		<?php }
+	}?>
+
+	<h3><?php _e('Speakpress options', 'speakpress'); ?></h3>
+	<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
 	<table class="form-table">
 		<tr>
 			<th scope="row" valign="top"><?php _e('Quality', 'speakpress'); ?></th>
@@ -170,5 +222,16 @@ $speakpress_options = get_option('speakpress_options');
 	<p class="submit">
 		<input type="submit" name="Submit" class="button" value="<?php _e('Save options', 'speakpress'); ?>" />
 	</p>
+<div style="background-color:#FFFFE0;border:1px solid #E6DB55;margin:5px 0 15px;padding:0 0.6em;">
+	<p style="margin:0.5em 0;padding:2px;"><?php _e('You can find news about Speakpress at <a href="http://twitter.com/AvatRDev">our Twitter channel</a> and via hashtag <a href="http://twitter.com/search?q=%23Speakpress">#Speakpress</a>.','speakpress');
+	_e('<br />Speakpress is free - but we would really appriciate it if you would donate to help developing this plugin.','speakpress'); ?>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="PRU68HXRTP2H4">
+			<input type="image" src="https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="<?php _e('Donate via Paypal','speakpress');?>">
+			<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+		</form>
+	</p>
 </div>
 </form>
+</div>
