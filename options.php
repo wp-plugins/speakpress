@@ -22,11 +22,13 @@ if (!empty($_POST['Submit'])) {
 	$speakpress_options['localechain'] = addslashes(@$_POST['localechain']);
 	$speakpress_options['theme'] = addslashes(@$_POST['theme']);
 	$speakpress_options['speakpress_always_show'] = (bool) @$_POST['speakpress_always_show'];
+	$speakpress_options['speakpress_stopbutton_show'] = (bool) @$_POST['speakpress_stopbutton_show'];
 	$speakpress_options['autostart'] = (bool) @$_POST['autostart'];
 	$speakpress_options['use_speakpress_css'] = (bool) @$_POST['use_speakpress_css'];
 	$speakpress_options['use_speakpress_widget'] = (bool) @$_POST['use_speakpress_widget'];
 	$speakpress_options['enable_widget_description'] = (bool) @$_POST['enable_widget_description'];
 	$speakpress_options['button_caption'] = addslashes(@$_POST['button_caption']);
+	$speakpress_options['stopbutton_caption'] = addslashes(@$_POST['stopbutton_caption']);
 	$speakpress_options['widget_description'] = addslashes(@$_POST['widget_description']);
 	$test = get_option('speakpress_options');
 	$speakpress_options['activation_request_sent'] = $test['activation_request_sent'];
@@ -74,7 +76,7 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			$email = $_REQUEST['email'] ;
 			$subject = 'Speakpress activation request' ;
 			$message = $_REQUEST['domain'] ;
-			if (mail( "speakr@avatr.net", "$subject",$message, "From: $email" )) {
+			if (mail( "felix@moches.de", "$subject",$message, "From: $email" )) {
 				$text = '<font color="green">'.__('Activation request sent.','speakpress').'</font>';
 				$speakpress_options['activation_request_sent'] = 1;
 				update_option('speakpress_options',$speakpress_options);
@@ -102,10 +104,16 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			</form>
 		<?php }
 	}?>
-
 	<h3><?php _e('Speakpress options', 'speakpress'); ?></h3>
 	<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
 	<table class="form-table">
+		<tr>
+			<th scope="row" valign="top"><?php _e('test', 'speakpress'); ?></th>
+			<td>
+				<input type="checkbox" name="domain_activated" value="1" <?php checked($speakpress_options['domain_activated']); ?>>
+				<?php _e('test.', 'speakpress'); ?>
+			</td>
+		</tr>
 		<tr>
 			<th scope="row" valign="top"><?php _e('Quality', 'speakpress'); ?></th>
 			<td>
@@ -213,10 +221,23 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			</td>	
 		</tr>
 		<tr>
+			<th scope="row" valign="top"><?php _e('Embed Speakpress stop button after every post entry?', 'speakpress'); ?></th>
+			<td>
+				<input type="checkbox" name="speakpress_stopbutton_show" value="1" <?php checked($speakpress_options['speakpress_stopbutton_show']); ?>>
+				<?php _e('When checked, also a stop-button will be added to all your posts.', 'speakpress'); ?>
+			</td>	
+		</tr>
+		<tr>
 			<th scope="row" valign="top"><?php _e('Button caption', 'speakpress'); ?></th>
 			<td>
 				<input type="text" name="button_caption" value="<?php echo stripslashes(htmlspecialchars($speakpress_options['button_caption'])); ?>" size="90" /><br />
 				<?php _e('Enter caption for Speakpress buttons.', 'speakpress'); ?>
+		</tr>
+		<tr>
+			<th scope="row" valign="top"><?php _e('Stop button caption', 'speakpress'); ?></th>
+			<td>
+				<input type="text" name="stopbutton_caption" value="<?php echo stripslashes(htmlspecialchars($speakpress_options['stopbutton_caption'])); ?>" size="90" /><br />
+				<?php _e('Enter caption for Stop buttons.', 'speakpress'); ?>
 		</tr>
 	</table>
 	<p class="submit">
