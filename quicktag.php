@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author Felix Moche
- * @version 1.0.2
+ * @version 1.0.3
  */
 function speakpress_quicktaginit() {
 	global $pagenow;
@@ -15,10 +15,13 @@ add_action('init', 'speakpress_quicktaginit');
 
 // Quicktag
 function speakpress_quicktag_js() {
+	$speakpress_options = get_option('speakpress_options');
+	$buttoncaption = $speakpress_options['button_caption'];
+	$stopbuttoncaption = $speakpress_options['stopbutton_caption'];
 	echo '<script type="text/javascript">
 	jQuery(function($) {
 		var spnpEdLength = edButtons.length; 
-		edButtons[spnpEdLength] = new edButton("ed_speakpress","page","<!--StartSpeech-->","<!--EndSpeech--><input class=\"speakpress_btn\" onclick=\"speakTags()\" type=\"button\" value=\"Text vorlesen\" />","p",-1);
+		edButtons[spnpEdLength] = new edButton("ed_speakpress","page","<!--StartSpeech-->","<!--EndSpeech--><input class=\"speakpress_btn\" onclick=\"speakTags()\" type=\"button\" value=\"'.$buttoncaption.'\" /><input class=\"speakpress_btn\" onclick=\"stopSpeak()\" type=\"button\" value=\"'.$stopbuttoncaption.'\" />","p",-1);
 
 		$("<input type=\"button\" />")
 			.attr("id","ed_speakpress")
