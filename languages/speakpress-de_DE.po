@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: readr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-08 22:36+0100\n"
-"PO-Revision-Date: 2010-06-08 22:37+0100\n"
+"POT-Creation-Date: 2010-06-08 22:53+0100\n"
+"PO-Revision-Date: 2010-06-08 22:54+0100\n"
 "Last-Translator: Felix Moche <felix@moches.de>\n"
 "Language-Team: Felix Moche <felix@moches.de>\n"
 "MIME-Version: 1.0\n"
@@ -244,6 +244,10 @@ msgstr "Sie können Neuigkeiten rund um Speakpress in <a href=\"http://twitter.c
 #: options.php:248
 msgid "<br />Speakpress is free - but we would really appriciate it if you would donate to help developing this plugin."
 msgstr "<br />Speakpress ist kostenlos - aber wir freuen uns über jede Spende, die der Entwicklung dieses Plugins hilft."
+
+#: options.php:252
+msgid "https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"
+msgstr "https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif"
 
 #: options.php:252
 msgid "Donate via Paypal"

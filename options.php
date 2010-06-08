@@ -32,6 +32,7 @@ if (!empty($_POST['Submit'])) {
 	$speakpress_options['widget_description'] = addslashes(@$_POST['widget_description']);
 	$test = get_option('speakpress_options');
 	$speakpress_options['activation_request_sent'] = $test['activation_request_sent'];
+	$speakpress_options['domain_activated'] = $test['domain_activated'];
 	$update_speakpress_queries = array();
 	$update_speakpress_text = array();
 	$update_speakpress_queries[] = update_option('speakpress_options', $speakpress_options);
@@ -179,7 +180,7 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			<th scope="row" valign="top"><?php _e('Enable auto play?', 'speakpress'); ?></th>
 			<td>
 				<input type="checkbox" name="autostart" value="1" <?php checked($speakpress_options['autostart']); ?>>
-				<?php _e('When checked, Speakpress will automatically read your texts after the page is loaded.', 'speakpress'); ?>
+				<?php _e('When checked, Speakpress will automatically read texts with speak tags after the page is loaded.', 'speakpress'); ?>
 			</td>
 		</tr>
 <!--
@@ -249,7 +250,7 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<input type="hidden" name="cmd" value="_s-xclick">
 			<input type="hidden" name="hosted_button_id" value="PRU68HXRTP2H4">
-			<input type="image" src="https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submitpp" alt="<?php _e('Donate via Paypal','speakpress');?>">
+			<input type="image" src="<?php _e('https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif','speakpress');?>" border="0" name="submitpp" alt="<?php _e('Donate via Paypal','speakpress');?>">
 			<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 		</form>
 	</p>

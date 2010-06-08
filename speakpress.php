@@ -129,7 +129,7 @@ function speakpress_init(){
 	load_plugin_textdomain( 'speakpress', 'wp-content/plugins/'. $plugin_dir.'/languages', $plugin_dir.'/languages' );
 	$speakpress_options = array(
 		'theme' => 'white',
-		'autostart' => 1,
+		'autostart' => 0,
 		'quality' => '3',
 		'language' => 'de',
 		'localechain' => 'de_DE',
