@@ -33,7 +33,7 @@
 					author 	  : 'Felix Moche',
 					authorurl : 'http://felix.moches.de',
 					infourl   : 'http://speakr.avatr.net',
-					version   : "1.0.1"
+					version   : "1.0.3"
 			};
 		}
 	});
