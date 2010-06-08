@@ -91,6 +91,7 @@ function add_speakpress_button($content){
 	global $post;
 	$speakpress_options = get_option('speakpress_options');
 	$buttoncaption = $speakpress_options['button_caption'];
+	$stopbuttoncaption = $speakpress_options['stopbutton_caption'];
 	if ( !is_feed() && !is_page() && intval($speakpress_options['speakpress_always_show']) ) {
 	$postid = $post->ID;
 	$start = '<div class="speakpress_container" id="speakpress-'.$postid.'">';
@@ -98,6 +99,12 @@ function add_speakpress_button($content){
 	$start .= "\n"
 		. '</div><input class="speakpress_btn" type="button" onclick="speakId(\'speakpress-' . $postid .'\')" value="'. $buttoncaption .'" />'
 		. "\n";			
+	if ( !is_feed() && !is_page() && intval($speakpress_options['speakpress_always_show']) && intval($speakpress_options['speakpress_stopbutton_show']) ) {
+	$start .= "\n"
+		. '<input class="speakpress_btn" type="button" onclick="stopSpeak();" value="'. $stopbuttoncaption .'" />'
+		. "\n";	
+	}
+	
 	return $start;
 	}
 	else return $content;
@@ -130,15 +137,36 @@ function speakpress_init(){
 		'gender' => 'm',
 		'use_speakpress_css' => 0,
 		'use_speakpress_widget' => 1,
-		'speakpress_always_show' => 0,
+		'speakpress_always_show' => 1,
+		'speakpress_stopbutton_show' => 0,
 		'enable_widget_description' => 1,
 		'domain_activated' => 0,
 		'activation_request_sent' => 0,
 		'widget_description' => 'Click the read-button to activate this',
-		'button_caption' => 'Read'
+		'button_caption' => 'Read',
+		'stopbutton_caption' => 'Stop'
 	);
 	add_option('speakpress_options', $speakpress_options);
+	speakpress_check_domain_activation_status();
 	speakpress_admin_warning();
+}
+
+//check if domain is activated
+function speakpress_check_domain_activation_status(){
+	$sp_blogurl = get_bloginfo('url');
+	$client = new SoapClient("http://avatr.net:8081/SpeechService?wsdl");
+	$sp_blogurl2 = str_replace('http://','',$sp_blogurl);
+	$result = $client->IsSpeakRClientRegistered (array('url' => $sp_blogurl2) );
+	$speakpress_options = get_option('speakpress_options');
+	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
+		return;
+	elseif ($result->IsSpeakRClientRegisteredResult == 1){
+		$speakpress_options['domain_activated'] = 1;
+		update_option('speakpress_options',$speakpress_options);
+		//echo 'The domain ' . $sp_blogurl2 . ' is registered.';
+	}
+	else
+		return;
 }
 
 //warning if domain not activated yet
@@ -152,12 +180,16 @@ function speakpress_admin_warning(){
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
-	function speakpress_warning(){
+	function speakpress_warning_request(){
 		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.').'</strong> '.sprintf(__('You must <a href="%1$s">activate your domain</a> for it to work.'), 'options-general.php?page=speakpress/options.php').'</p></div>';
 	}
-	if (($sp_requested == 0) && ($sp_activated == 0)) {
-		add_action('admin_notices', 'speakpress_warning');
+	function speakpress_warning_activation(){
+		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '.__('Your activation request was sent but not yet accepted, please be patient.','speakpress').'</p></div>';
 	}
+	if ($sp_requested == 0 && $sp_activated == 0)
+		add_action('admin_notices', 'speakpress_warning_request');
+	elseif ($sp_activated == 0)
+		add_action('admin_notices', 'speakpress_warning_activation');
 	return;
 }
 
