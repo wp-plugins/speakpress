@@ -108,13 +108,6 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 	<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
 	<table class="form-table">
 		<tr>
-			<th scope="row" valign="top"><?php _e('test', 'speakpress'); ?></th>
-			<td>
-				<input type="checkbox" name="domain_activated" value="1" <?php checked($speakpress_options['domain_activated']); ?>>
-				<?php _e('test.', 'speakpress'); ?>
-			</td>
-		</tr>
-		<tr>
 			<th scope="row" valign="top"><?php _e('Quality', 'speakpress'); ?></th>
 			<td>
 				<select name="quality" size="1">
