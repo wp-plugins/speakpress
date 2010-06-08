@@ -160,13 +160,21 @@ function speakpress_check_domain_activation_status(){
 	$speakpress_options = get_option('speakpress_options');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
 		return;
-	elseif ($result->IsSpeakRClientRegisteredResult == 1){
-		$speakpress_options['domain_activated'] = 1;
-		update_option('speakpress_options',$speakpress_options);
-		//echo 'The domain ' . $sp_blogurl2 . ' is registered.';
+		
+	elseif (class_exists("SoapClient")) {
+		if ($result->IsSpeakRClientRegisteredResult == 1){
+			$speakpress_options['domain_activated'] = 1;
+			update_option('speakpress_options',$speakpress_options);
+			//echo 'The domain ' . $sp_blogurl2 . ' is registered.';
+		}
+		else
+			return;
 	}
-	else
-		return;
+	else {
+		$speakpress_options['domain_activated'] = 1;
+		update_option('speakpress_options',$speakpress_options);	
+	}
+		
 }
 
 //warning if domain not activated yet
