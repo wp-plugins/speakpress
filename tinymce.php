@@ -1,15 +1,15 @@
 <?php
 /**
  * @package Speakpress
- * @author AvatR OHG
- * @version 1.0.2
+ * @author Felix Moche
+ * @version 1.3
  */
  
-class add_speakpress_button {
+class add_Speakpress_button {
 
 	var $pluginname = "Speakpress";
 	
-	function add_speakpress_button()  {
+	function add_Speakpress_button()  {
 		// Modify the version when tinyMCE plugins are changed.
 		add_filter('tiny_mce_version', array (&$this, 'change_tinymce_version') );
 		// init process for button control
@@ -43,5 +43,5 @@ class add_speakpress_button {
 		return ++$version;
 	}
 }
-$tinymce_button = new add_speakpress_button();
+$tinymce_button = new add_Speakpress_button ();
 ?>
