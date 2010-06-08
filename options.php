@@ -76,7 +76,7 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			$email = $_REQUEST['email'] ;
 			$subject = 'Speakpress activation request' ;
 			$message = $_REQUEST['domain'] ;
-			if (mail( "felix@moches.de", "$subject",$message, "From: $email" )) {
+			if (mail( "speakr@avatr.net", "$subject",$message, "From: $email" )) {
 				$text = '<font color="green">'.__('Activation request sent.','speakpress').'</font>';
 				$speakpress_options['activation_request_sent'] = 1;
 				update_option('speakpress_options',$speakpress_options);
