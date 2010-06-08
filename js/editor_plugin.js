@@ -1,6 +1,6 @@
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('Speakpress');
+	tinymce.PluginManager.requireLangPack('speakpress');
 	
 	tinymce.create('tinymce.plugins.Speakpress', {
 		/**
@@ -14,11 +14,11 @@
 		init : function(ed, url) {
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
 			ed.addCommand('Speakpress', function() {
-				ed.execCommand('mceReplaceContent',false,'<!--StartSpeech-->{$selection}<!--EndSpeech--><input onclick="speakTags()" value="Text vorlesen" type="button" /><input onclick="stopSpeak()" value="Stop" type="button" />');
+				ed.execCommand('mceReplaceContent',false,'<!--StartSpeech-->{$selection}<!--EndSpeech--><input onclick="speakTags()" value=" '+ ed.getLang('speakpress.buttoncaption', 0) +'" type="button" /><input onclick="speakTags()" value=" '+ ed.getLang('speakpress.stopbuttoncaption', 0) +'" type="button" />');
 			});
 			// Register button
 			ed.addButton('Speakpress', {
-				title : 'Vorlesen',
+				title : ed.getLang('speakpress.title', 0),
 				cmd : 'Speakpress',
 				image : url + '/../speakpress.png'
 			});
@@ -32,12 +32,12 @@
 					longname  : 'Speakpress',
 					author 	  : 'Felix Moche',
 					authorurl : 'http://felix.moches.de',
-					infourl   : 'http://speakr.avatr.net',
-					version   : "1.0.3"
+					infourl   : 'http://www.avatr.net',
+					version   : "1.0"
 			};
 		}
 	});
-	tinymce.PluginManager.add('Speakspress', tinymce.plugins.Speakpress);
+	tinymce.PluginManager.add('Speakpress', tinymce.plugins.Speakpress);
 })();
 
 
