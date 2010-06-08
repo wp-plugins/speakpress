@@ -154,13 +154,14 @@ function speakpress_init(){
 //check if domain is activated
 function speakpress_check_domain_activation_status(){
 	$sp_blogurl = get_bloginfo('url');
-	$client = new SoapClient("http://avatr.net:8081/SpeechService?wsdl");
+	if (class_exists("SoapClient")){
+		$client = new SoapClient("http://avatr.net:8081/SpeechService?wsdl");
+		$result = $client->IsSpeakRClientRegistered (array('url' => $sp_blogurl2) );
+	}	
 	$sp_blogurl2 = str_replace('http://','',$sp_blogurl);
-	$result = $client->IsSpeakRClientRegistered (array('url' => $sp_blogurl2) );
 	$speakpress_options = get_option('speakpress_options');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
-		return;
-		
+		return;		
 	elseif (class_exists("SoapClient")) {
 		if ($result->IsSpeakRClientRegisteredResult == 1){
 			$speakpress_options['domain_activated'] = 1;
