@@ -60,11 +60,12 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 	//get domain and admin-email
 	$sp_adminemail = get_bloginfo('admin_email');
 	$sp_blogurl = get_bloginfo('url');
+	//get activation status
 	if ( isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']) )	
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
-		
+	//alert if no soap installed		
 	if (!(class_exists("SoapClient")))
 		_e('Your server does not support SOAP, so you cannot check the activation status.','speakpress');
 	//show activation form if not already activated
@@ -228,12 +229,14 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 			<td>
 				<input type="text" name="button_caption" value="<?php echo stripslashes(htmlspecialchars($speakpress_options['button_caption'])); ?>" size="90" /><br />
 				<?php _e('Enter caption for Speakpress buttons.', 'speakpress'); ?>
+			</td>
 		</tr>
 		<tr>
 			<th scope="row" valign="top"><?php _e('Stop button caption', 'speakpress'); ?></th>
 			<td>
 				<input type="text" name="stopbutton_caption" value="<?php echo stripslashes(htmlspecialchars($speakpress_options['stopbutton_caption'])); ?>" size="90" /><br />
 				<?php _e('Enter caption for Stop buttons.', 'speakpress'); ?>
+			</td>
 		</tr>
 	</table>
 	<p class="submit">
