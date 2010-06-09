@@ -66,11 +66,8 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
-	//alert if no soap installed		
-	if (!(class_exists("SoapClient")))
-		_e('Your server does not support SOAP, so you cannot check the activation status.','speakpress');
 	//show activation form if not already activated
-	elseif ($sp_activated == 1)
+	if ($sp_activated == 1)
 		_e('Domain activated, Speakpress can be used.','speakpress');
 	//activation request sent but not activated yet
 	elseif (isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']))

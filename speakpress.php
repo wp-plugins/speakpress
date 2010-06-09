@@ -41,6 +41,7 @@ $plugin = plugin_basename(__FILE__);
 include_once (dirname (__FILE__)."/quicktag.php");
 include_once (dirname (__FILE__)."/tinymce.php");
 include_once (dirname (__FILE__)."/widget.php");
+include_once (dirname (__FILE__)."/activationstatus.php");
 
 //uninstall
 function speakpress_uninstall(){
@@ -153,29 +154,19 @@ function speakpress_init(){
 
 //check if domain is activated
 function speakpress_check_domain_activation_status(){
+	$swsClient = new SpeakrWebserviceClient();
 	$sp_blogurl = get_bloginfo('url');
-	if (class_exists("SoapClient")){
-		$client = new SoapClient("http://avatr.net:8081/SpeechService?wsdl");
-		$result = $client->IsSpeakRClientRegistered (array('url' => $sp_blogurl2) );
-	}	
-	$sp_blogurl2 = str_replace('http://','',$sp_blogurl);
+	$domain = str_replace('http://','',$sp_blogurl);
+	$registered = $swsClient->checkRegistration($domain);
 	$speakpress_options = get_option('speakpress_options');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
-		return;		
-	elseif (class_exists("SoapClient")) {
-		if ($result->IsSpeakRClientRegisteredResult == 1){
+		return;
+	elseif ($registered == 1){
 			$speakpress_options['domain_activated'] = 1;
 			update_option('speakpress_options',$speakpress_options);
-			//echo 'The domain ' . $sp_blogurl2 . ' is registered.';
-		}
-		else
-			return;
 	}
-	else {
-		$speakpress_options['domain_activated'] = 1;
-		update_option('speakpress_options',$speakpress_options);	
-	}
-		
+	else
+		return;		
 }
 
 //warning if domain not activated yet
