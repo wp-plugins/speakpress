@@ -152,13 +152,61 @@ function speakpress_init(){
 	speakpress_admin_warning();
 }
 
+//get remote file
+function getRemoteFile($url) {
+	// get the host name and url path
+	$parsedUrl = parse_url($url);
+	$host = $parsedUrl['host'];
+	if (isset($parsedUrl['path']))
+		$path = $parsedUrl['path'];
+	else
+		$path = '/';
+	if (isset($parsedUrl['query']))
+		$path .= '?' . $parsedUrl['query'];
+	if (isset($parsedUrl['port']))
+		$port = $parsedUrl['port'];
+	else 
+		$port = '80';
+	$timeout = 10;
+	$response = '';
+	// connect to the remote server
+	$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
+	if( !$fp )
+		echo "Cannot retrieve $url";
+	else {
+		// send the necessary headers to get the file
+		fputs($fp, "GET $path HTTP/1.0\r\n" .
+			"Host: $host\r\n" .
+			"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
+			"Accept: */*\r\n" .
+			"Accept-Language: en-us,en;q=0.5\r\n" .
+			"Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n" .
+			"Keep-Alive: 300\r\n" .
+			"Connection: keep-alive\r\n" .
+			"Referer: http://$host\r\n\r\n");
+			// retrieve the response from the remote server
+		while ( $line = fread( $fp, 4096 ) ) {
+			$response .= $line;
+		}
+		fclose( $fp );
+		// strip the headers
+		$pos = strpos($response, "\r\n\r\n");
+		$response = substr($response, $pos + 4);
+	}
+	// return the file content
+	return $response;
+}
+
 //check if domain is activated
 function speakpress_check_domain_activation_status(){
-	$swsClient = new SpeakrWebserviceClient();
+	//$swsClient = new SpeakrWebserviceClient();
 	$sp_blogurl = get_bloginfo('url');
 	$domain = str_replace('http://','',$sp_blogurl);
-	$registered = $swsClient->checkRegistration($domain);
+	//$registered = $swsClient->checkRegistration($domain);
+
+	$registered=getRemoteFile("http://tests.avatr.net/isReg.php?url=wp3.newsmate.de");
 	$speakpress_options = get_option('speakpress_options');
+	//$registered = file_get_contents('http://tests.avatr.net/isReg.php?url=wp3.newsmate.de');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
 		return;
 	elseif ($registered == 1){
