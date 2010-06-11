@@ -204,7 +204,7 @@ function speakpress_check_domain_activation_status(){
 	$domain = str_replace('http://','',$sp_blogurl);
 	//$registered = $swsClient->checkRegistration($domain);
 
-	$registered=getRemoteFile("http://tests.avatr.net/isReg.php?url=wp3.newsmate.de");
+	$registered=getRemoteFile("http://speakr.avatr.net/api/isReg.php?url=wp3.newsmate.de");
 	$speakpress_options = get_option('speakpress_options');
 	//$registered = file_get_contents('http://tests.avatr.net/isReg.php?url=wp3.newsmate.de');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
