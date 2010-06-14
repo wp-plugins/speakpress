@@ -41,7 +41,6 @@ $plugin = plugin_basename(__FILE__);
 include_once (dirname (__FILE__)."/quicktag.php");
 include_once (dirname (__FILE__)."/tinymce.php");
 include_once (dirname (__FILE__)."/widget.php");
-include_once (dirname (__FILE__)."/activationstatus.php");
 
 //uninstall
 function speakpress_uninstall(){
