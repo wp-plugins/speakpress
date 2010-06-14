@@ -3,5 +3,4 @@ speakpress:{
 stopbuttoncaption : 'Stop',
 buttoncaption : 'Vorlesen',
 title : 'Speakpress-Button einfuegen'
-
 }}});

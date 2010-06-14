@@ -1,6 +1,6 @@
 tinyMCE.addI18n({en:{
-testx:{	
-title : 'Insert Speakpress Button',
+speakpress:{	
 stopbuttoncaption : 'Stop',
-buttoncaption : 'Read'
+buttoncaption : 'Read',
+title : 'Insert Speakpress button'
 }}});
