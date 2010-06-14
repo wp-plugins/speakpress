@@ -108,7 +108,8 @@ function add_speakpress_button($content){
 	
 	return $start;
 	}
-	else return $content;
+	else 
+		return $content;
 }
 
 //JS integration
@@ -225,10 +226,14 @@ function speakpress_admin_warning(){
 	else
 		$sp_activated = 0;
 	function speakpress_warning_request(){
-		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '.sprintf(__('You must <a href="%1$s">activate your domain</a> for it to work.','speakpress'), 'options-general.php?page=speakpress/options.php').'</p></div>';
+		echo '<div class="updated fade">
+				<p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '
+				.sprintf(__('You must <a href="%1$s">activate your domain</a> for it to work.','speakpress'), 
+				'options-general.php?page=speakpress/options.php').'</p></div>';
 	}
 	function speakpress_warning_activation(){
-		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '.__('Your activation request was sent but not yet accepted, please be patient.','speakpress').'</p></div>';
+		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '
+				.__('Your activation request was sent but not yet accepted, please be patient.','speakpress').'</p></div>';
 	}
 	if ($sp_requested == 0 && $sp_activated == 0)
 		add_action('admin_notices', 'speakpress_warning_request');
@@ -250,10 +255,14 @@ function embed_speakpress(){
 		$autostart = 'true';
 	else
 		$autostart = 'false';	
-	$output = '<script type="text/javascript"> var flashvars = {}; flashvars.defaultSpeed = "'.$speed.'"; flashvars.defaultLanguage = "'.$language.'";flashvars.localeChain = "'.$localechain.'";flashvars.autostart = "'.$autostart.'"; flashvars.defaultGender = "'.$gender.'";flashvars.defaultQuality = "'.$quality.'"; flashvars.theme = "'.$theme.'";flashvars.installFolder = "'.WP_PLUGIN_URL.'/speakpress"; installSpeakR("'.WP_PLUGIN_URL.'/speakpress/SpeakR.swf", flashvars); </script>';
-	$output.= '<div id="flashSpeakR"><a href="http://www.adobe.com/go/getflashplayer"
-target="_blank"> <img src="http://www.adobe.com/macromedia/
-style_guide/images/160x41_Get_Flash_Player.jpg" alt="' . __('Download Flash player','speakpress') .'"/>
-</a> </div>';
+	$output = '<script type="text/javascript"> var flashvars = {}; flashvars.defaultSpeed = "'.$speed.'"; 
+				flashvars.defaultLanguage = "'.$language.'";flashvars.localeChain = "'.$localechain.'";
+				flashvars.autostart = "'.$autostart.'"; flashvars.defaultGender = "'.$gender.'";
+				flashvars.defaultQuality = "'.$quality.'"; flashvars.theme = "'.$theme.'";
+				flashvars.installFolder = "'.WP_PLUGIN_URL.'/speakpress"; 
+				installSpeakR("'.WP_PLUGIN_URL.'/speakpress/SpeakR.swf", flashvars); </script>';
+	$output .= '<div id="flashSpeakR"><a href="http://www.adobe.com/go/getflashplayer"
+				target="_blank"> <img src="http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg" 
+				alt="' . __('Download Flash player','speakpress') .'"/></a> </div>';
 	echo $output;
 }?>
