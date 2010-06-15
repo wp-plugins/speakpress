@@ -199,13 +199,13 @@ function getRemoteFile($url) {
 
 //check if domain is activated
 function speakpress_check_domain_activation_status(){
-	$sp_blogurl = get_bloginfo('url');
-	$domain = str_replace('http://','',$sp_blogurl);
-	$registered=getRemoteFile("http://speakr.avatr.net/api/is_reg.php?url=$domain");
 	$speakpress_options = get_option('speakpress_options');
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
 		return;
-	elseif ($registered == 1){
+	$sp_blogurl = get_bloginfo('url');
+	$domain = str_replace('http://','',$sp_blogurl);
+	$registered=getRemoteFile("http://speakr.avatr.net/api/is_reg.php?url=$domain");
+	if ($registered == 1){
 			$speakpress_options['domain_activated'] = 1;
 			update_option('speakpress_options',$speakpress_options);
 	}
