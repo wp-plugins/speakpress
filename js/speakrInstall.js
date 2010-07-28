@@ -16,5 +16,5 @@ function installSpeakR(speakrSwfPath, flashVars) {
 	var attributes = {};
 	attributes.id = "SpeakR";
 	attributes.name = "SpeakR";
-	swfobject.embedSWF(speakrSwfPath,"flashSpeakR", "245", "60", "9.0.0","expressInstall.swf",flashVars, params, attributes);
+	swfobject.embedSWF(speakrSwfPath,"flashSpeakR", "190", "50", "10.1.0",null,flashVars, params, attributes);
 }
