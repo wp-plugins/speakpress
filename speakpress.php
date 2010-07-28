@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0.3
+ * @version 1.0.4
  */
 /*
 Plugin Name: Speakpress
@@ -154,7 +154,7 @@ function speakpress_init(){
 
 //get remote file
 function getRemoteFile($url) {
-	// get the host name and url path
+	//get host name and url path
 	$parsedUrl = parse_url($url);
 	$host = $parsedUrl['host'];
 	if (isset($parsedUrl['path']))
@@ -169,12 +169,12 @@ function getRemoteFile($url) {
 		$port = '80';
 	$timeout = 10;
 	$response = '';
-	// connect to the remote server
+	//connect to remote server
 	$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
-	if( !$fp )
+	if(!$fp)
 		echo "Cannot retrieve $url";
 	else {
-		// send the necessary headers to get the file
+		//send necessary headers to get the file
 		fputs($fp, "GET $path HTTP/1.0\r\n" .
 			"Host: $host\r\n" .
 			"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
@@ -184,43 +184,51 @@ function getRemoteFile($url) {
 			"Keep-Alive: 300\r\n" .
 			"Connection: keep-alive\r\n" .
 			"Referer: http://$host\r\n\r\n");
-			// retrieve the response from the remote server
-		while ( $line = fread( $fp, 4096 ) ) {
+			//retrieve response from remote server
+		while ($line = fread($fp,4096)) {
 			$response .= $line;
 		}
 		fclose( $fp );
-		// strip the headers
+		//strip headers
 		$pos = strpos($response, "\r\n\r\n");
 		$response = substr($response, $pos + 4);
 	}
-	// return the file content
+	//return file content
 	return $response;
 }
 
 //check if domain is activated
 function speakpress_check_domain_activation_status(){
-	$speakpress_options = get_option('speakpress_options');
-	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
+	$speakpress_options = get_option('speakpress_options');	
+	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated'])){
 		return;
-	$sp_blogurl = get_bloginfo('url');
-	$domain = str_replace('http://','',$sp_blogurl);
-	$registered=getRemoteFile("http://speakr.avatr.net/api/is_reg.php?url=$domain");
-	if ($registered == 1){
+	}
+	else {
+		$sp_blogurl = get_bloginfo('url');
+		$registered = getRemoteFile("http://speakr.avatr.net/api/check_registration.php?url=$sp_blogurl");
+		$regoutput = explode("_",$registered);
+
+		if ($regoutput[0] == 'active') {
 			$speakpress_options['domain_activated'] = 1;
 			update_option('speakpress_options',$speakpress_options);
+		}
+
+		if ($regoutput[1] == 'confirmed') {
+			$speakpress_options['activation_request_sent'] = 1;
+			update_option('speakpress_options',$speakpress_options);
+		}
 	}
-	else
-		return;		
 }
 
 //warning if domain not activated yet
 function speakpress_admin_warning(){
 	$speakpress_options = get_option('speakpress_options');
-	if ( isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']) )
+
+	if (isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']))
 		$sp_requested = 1;
 	else
 		$sp_requested = 0;
-	if ( isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']) )	
+	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']))
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
@@ -262,6 +270,6 @@ function embed_speakpress(){
 				installSpeakR("'.WP_PLUGIN_URL.'/speakpress/SpeakR.swf", flashvars); </script>';
 	$output .= '<div id="flashSpeakR"><a href="http://www.adobe.com/go/getflashplayer"
 				target="_blank"> <img src="http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg" 
-				alt="' . __('Download Flash player','speakpress') .'"/></a> </div>';
+				alt="' . __('Download Flash player','speakpress') .'"/></a><br /><small>'.__('Update Flash <a href="http://www.adobe.com/go/getflashplayer" target="_blank">here</a> to use SpeakR.','speakpress').'</small></div>';
 	echo $output;
 }?>
