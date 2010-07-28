@@ -2,7 +2,7 @@
 /**
  * @package Speakpress
  * @author AvatR OHG
- * @version 1.0.3
+ * @version 1.0.4
  */
  
 $base_name = plugin_basename('speakpress/options.php');
@@ -61,43 +61,53 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 	//get domain and admin-email
 	$sp_adminemail = get_bloginfo('admin_email');
 	$sp_blogurl = get_bloginfo('url');
+
 	//get activation status
 	if ( isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated']) )	
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
+
 	//show activation form if not already activated
 	if ($sp_activated == 1)
 		_e('Domain activated, Speakpress can be used.','speakpress');
+
 	//activation request sent but not activated yet
 	elseif (isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']))
 		_e('Domain activation request sent. Please be patient.','speakpress');
-	//not activated	
+
+	//not activated	and no activation request sent yet
 	else {
-		if (isset($_REQUEST['email'])){
-			$email = $_REQUEST['email'] ;
-			$subject = 'Speakpress activation request' ;
-			$message = $_REQUEST['domain'] ;
-			if (mail( "speakr@avatr.net", "$subject",$message, "From: $email" )) {
+		if (isset($_REQUEST['mail'])){
+			$mail = $_REQUEST['mail'];
+			$url = $_REQUEST['url'];
+			$name = $_REQUEST['name'] ;
+			if (getRemoteFile('http://speakr.avatr.net/api/register.php?name='.$name.'&url='.$url.'&mail='.$mail)) {
 				$text = '<font color="green">'.__('Activation request sent.','speakpress').'</font>';
-				$speakpress_options['activation_request_sent'] = 1;
-				update_option('speakpress_options',$speakpress_options);
+				//$speakpress_options['activation_request_sent'] = 1;
+				//update_option('speakpress_options',$speakpress_options);
 			}
+			//could not retrieve activation url
 			else
 				$text = '<font color="red">'.__('Sending activation request failed. Please manually send an email with your domain to speakr@avatr.net.','speakpress').'</font>';
 			echo '<div class="updated fade"><p>'.$text.'</p></div>';
 		}
+
 		else { 
 			_e('Your domain must be activated in order to use Speakpress. <br />Please use the following form to request activation and wait until we accepted your request.','speakpress');?>
 			<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
 			<table class="form-table">
 				<tr>
 					<th>Email:</th>
-					<td><input name="email" type="text" value="<?php echo $sp_adminemail ?>" /></td>
+					<td><input name="mail" type="text" value="<?php echo $sp_adminemail ?>" /></td>
 				</tr>
 				<tr>
 					<th>Domain:</th>
-					<td><input name="domain" type="text" value="<?php echo $sp_blogurl; ?>" /></td>
+					<td><input name="url" type="text" value="<?php echo $sp_blogurl; ?>" /></td>
+				</tr>
+				<tr>
+					<th>Name:</th>
+					<td><input name="name" type="text" value="" /></td>
 				</tr>
 			</table>
 			<p class="submit">
