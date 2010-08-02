@@ -142,6 +142,7 @@ function speakpress_init(){
 		'speakpress_stopbutton_show' => 0,
 		'enable_widget_description' => 1,
 		'domain_activated' => 0,
+		'activation_request_confirmed' => 0,
 		'activation_request_sent' => 0,
 		'widget_description' => 'Click the read-button to activate this',
 		'button_caption' => 'Read',
@@ -154,6 +155,7 @@ function speakpress_init(){
 
 //get remote file
 function getRemoteFile($url) {
+	echo 'Achtung! get_RemoteFile() ausgefuehrt!';
 	//get host name and url path
 	$parsedUrl = parse_url($url);
 	$host = $parsedUrl['host'];
@@ -201,19 +203,25 @@ function getRemoteFile($url) {
 function speakpress_check_domain_activation_status(){
 	$speakpress_options = get_option('speakpress_options');	
 	if (isset($speakpress_options['domain_activated']) && intval($speakpress_options['domain_activated'])){
-		return;
+			return;
 	}
 	else {
 		$sp_blogurl = get_bloginfo('url');
 		$registered = getRemoteFile("http://speakr.avatr.net/api/check_registration.php?url=$sp_blogurl");
 		$regoutput = explode("_",$registered);
-
+		
+		//if domain activated by avatr
 		if ($regoutput[0] == 'active') {
 			$speakpress_options['domain_activated'] = 1;
 			update_option('speakpress_options',$speakpress_options);
 		}
-
+		//if activation link clicked
 		if ($regoutput[1] == 'confirmed') {
+			$speakpress_options['activation_request_confirmed'] = 1;
+			update_option('speakpress_options',$speakpress_options);
+		}
+		//if activation request sent
+		elseif ($regoutput[1] == 'send') {
 			$speakpress_options['activation_request_sent'] = 1;
 			update_option('speakpress_options',$speakpress_options);
 		}
@@ -232,6 +240,10 @@ function speakpress_admin_warning(){
 		$sp_activated = 1;
 	else
 		$sp_activated = 0;
+	if (isset($speakpress_options['activation_request_confirmed']) && intval($speakpress_options['activation_request_confirmed']))
+		$sp_confirmed = 1;
+	else
+		$sp_confirmed = 0;
 	function speakpress_warning_request(){
 		echo '<div class="updated fade">
 				<p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '
@@ -242,9 +254,15 @@ function speakpress_admin_warning(){
 		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '
 				.__('Your activation request was sent but not yet accepted, please be patient.','speakpress').'</p></div>';
 	}
+	function speakpress_warning_confirmation(){
+		echo '<div class="updated fade"><p><strong>'.__('Speakpress will not work yet.','speakpress').'</strong> '
+				.__('Your have to click the confirmation link in the email we sent you.','speakpress').'</p></div>';
+	}
 	if ($sp_requested == 0 && $sp_activated == 0)
 		add_action('admin_notices', 'speakpress_warning_request');
-	elseif ($sp_activated == 0)
+	elseif ($sp_activated == 0 && $sp_confirmed == 0)
+		add_action('admin_notices', 'speakpress_warning_confirmation');
+	elseif ($sp_activated == 0 && $sp_confirmed == 1)
 		add_action('admin_notices', 'speakpress_warning_activation');
 	return;
 }
