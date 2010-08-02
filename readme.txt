@@ -4,7 +4,7 @@ Donate link: http://speakr.avatr.net/en
 Tags: SpeakR, read, tts, audio, streaming
 Requires at least: 2.7
 Tested up to: 3.0 RC1
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 
 Speakpress offers a way to read every kind of german and english text (blog posts, static pages, hidden text-fragments) to your visitor.
 
@@ -71,6 +71,10 @@ This will also add a "Read" button below the selection.
 
 == Changelog ==
 
+= 1.1.0 =
+* using SpeakR 0.8.2: new GUI (190x50px), Flash Player 10.1 required
+* new registration workflow (email adress confirmation)
+
 = 1.0.3 =
 * added domain activation form
 * include js files only if not admin
@@ -80,6 +84,7 @@ This will also add a "Read" button below the selection.
 * added admin warning if domain not activated
 * added checking for domain activation status
 * fixed minor things
+
 
 = 1.0.2 =
 * installation bugfix
