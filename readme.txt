@@ -4,7 +4,7 @@ Donate link: http://speakr.avatr.net/en
 Tags: SpeakR, read, tts, audio, streaming
 Requires at least: 2.7
 Tested up to: 3.0 RC1
-Stable tag: 1.1.0
+Stable tag: 1.1.0 
 
 Speakpress offers a way to read every kind of german and english text (blog posts, static pages, hidden text-fragments) to your visitor.
 
