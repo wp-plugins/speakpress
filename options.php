@@ -74,18 +74,18 @@ if (!empty($text)) echo '<div id="message" class="updated fade"><p>'.$text.'</p>
 
 	//activation request sent but not activated yet
 	elseif (isset($speakpress_options['activation_request_sent']) && intval($speakpress_options['activation_request_sent']))
-		_e('Domain activation request sent. Please be patient.','speakpress');
+		_e('Domain activation request sent. You should receive an Email with an activation link.','speakpress');
 
 	//not activated	and no activation request sent yet
 	else {
 		if (isset($_REQUEST['mail'])){
 			$mail = $_REQUEST['mail'];
 			$url = $_REQUEST['url'];
-			$name = $_REQUEST['name'] ;
+			$name = str_replace(" ","+",$_REQUEST['name']);
 			if (getRemoteFile('http://speakr.avatr.net/api/register.php?name='.$name.'&url='.$url.'&mail='.$mail)) {
 				$text = '<font color="green">'.__('Activation request sent.','speakpress').'</font>';
-				//$speakpress_options['activation_request_sent'] = 1;
-				//update_option('speakpress_options',$speakpress_options);
+				$speakpress_options['activation_request_sent'] = 1;
+				update_option('speakpress_options',$speakpress_options);
 			}
 			//could not retrieve activation url
 			else
