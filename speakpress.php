@@ -155,7 +155,6 @@ function speakpress_init(){
 
 //get remote file
 function getRemoteFile($url) {
-	echo 'Achtung! get_RemoteFile() ausgefuehrt!';
 	//get host name and url path
 	$parsedUrl = parse_url($url);
 	$host = $parsedUrl['host'];
