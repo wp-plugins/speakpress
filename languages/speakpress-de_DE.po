@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: readr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-08 23:31+0100\n"
-"PO-Revision-Date: 2010-06-08 23:32+0100\n"
+"POT-Creation-Date: 2010-08-02 18:10+0100\n"
+"PO-Revision-Date: 2010-08-02 18:14+0100\n"
 "Last-Translator: Felix Moche <felix@moches.de>\n"
 "Language-Team: Felix Moche <felix@moches.de>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: options.php:39
 #: options.php:58
-#: options.php:112
+#: options.php:117
 msgid "Speakpress options"
 msgstr "Speakpress Optionen"
 
@@ -30,226 +30,226 @@ msgid "No options updated"
 msgstr "Keine Optionen aktualisiert"
 
 #: options.php:59
-#: options.php:107
+#: options.php:112
 msgid "Activate domain"
 msgstr "Domain aktivieren"
 
-#: options.php:71
-msgid "Your server does not support SOAP, so you cannot check the activation status."
-msgstr "Ihr Server unterstützt kein SOAP um den Aktivierungsstatus zu überprüfen."
-
-#: options.php:74
+#: options.php:67
 msgid "Domain activated, Speakpress can be used."
 msgstr "Domain wurde aktiviert, Speakpress kann genutzt werden."
 
-#: options.php:77
-msgid "Domain activation request sent. Please be patient."
-msgstr "Domainaktivierungsanfrage wurde gesendet. Bitte haben Sie ein wenig Geduld."
+#: options.php:71
+msgid "Domain activation request confirmed. Please wait until your domain is activated."
+msgstr "Aktivierung wurde best&auml;tigt. Bitte warten Sie, bis Ihre Domain freigeschaltet wird."
 
-#: options.php:85
-msgid "Activation request sent."
-msgstr "Aktivierungsanfrage wurde gesendet."
+#: options.php:75
+msgid "Domain activation request sent. You have to click the confirmation link in the email we sent you."
+msgstr "Domainaktivierungsanfrage wurde gesendet. Sie m&uuml;ssen den Best&auml;tigungslink in der Email anklicken, die wir Ihnen gesendet haben."
+
+#: options.php:84
+msgid "Domain activation request sent. You should receive an email with an activation link in the next minutes."
+msgstr "Domainaktivierungsanfrage wurde gesendet. Sie sollten innerhalb der n&auml;chsten Minuten eine Email mit einem Aktivierungslink erhalten."
 
 #: options.php:90
 msgid "Sending activation request failed. Please manually send an email with your domain to speakr@avatr.net."
 msgstr "Senden der Aktivierungsanfrage gescheitert. Bitte schreiben Sie eine Email an speakr@avatr.net mit Ihrer Domain, um Speakpress nutzen zu können."
 
-#: options.php:94
+#: options.php:95
 msgid "Your domain must be activated in order to use Speakpress. <br />Please use the following form to request activation and wait until we accepted your request."
 msgstr "Ihre Domain muss aktiviert werden um Speakpress nutzen zu können. <br />Bitte nutzen Sie folgendes Formular um eine Aktivierung zu erhalten und warten Sie, bis Ihre Domain freigeschaltet wurde."
 
-#: options.php:116
+#: options.php:121
 msgid "Quality"
 msgstr "Qualität"
 
-#: options.php:119
+#: options.php:124
 msgid "low"
 msgstr "niedrig"
 
-#: options.php:120
-#: options.php:131
+#: options.php:125
+#: options.php:136
 msgid "medium"
 msgstr "mittel"
 
-#: options.php:121
+#: options.php:126
 msgid "high"
 msgstr "hoch"
 
-#: options.php:123
+#: options.php:128
 msgid "Choose the quality of the downloaded stream."
 msgstr "Wählen Sie die Qualität des Audiostreams."
 
-#: options.php:127
+#: options.php:132
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: options.php:130
+#: options.php:135
 msgid "slow"
 msgstr "langsam"
 
-#: options.php:132
+#: options.php:137
 msgid "fast"
 msgstr "schnell"
 
-#: options.php:134
+#: options.php:139
 msgid "Choose the speed."
 msgstr "Wählen Sie die Geschwindigkeit der Stimme."
 
-#: options.php:138
+#: options.php:143
 msgid "Gender for voice"
 msgstr "Geschlecht der Stimme"
 
-#: options.php:141
+#: options.php:146
 msgid "male"
 msgstr "männlich"
 
-#: options.php:142
+#: options.php:147
 msgid "female"
 msgstr "weiblich"
 
-#: options.php:144
+#: options.php:149
 msgid "Choose if you want to hear a male or female voice."
 msgstr "Wählen Sie hier, ob Sie eine weibliche oder männliche Stimme hören wollen."
 
-#: options.php:148
+#: options.php:153
 msgid "Theme"
 msgstr "Farbschema"
 
-#: options.php:151
+#: options.php:156
 msgid "cyan"
 msgstr "cyan"
 
-#: options.php:152
+#: options.php:157
 msgid "green"
 msgstr "grün"
 
-#: options.php:153
+#: options.php:158
 msgid "orange"
 msgstr "orange"
 
-#: options.php:154
+#: options.php:159
 msgid "white"
 msgstr "weiss"
 
-#: options.php:156
+#: options.php:161
 msgid "Choose your colour theme."
 msgstr "Wählen Sie Ihr Farbschema."
 
-#: options.php:160
+#: options.php:165
 msgid "Language"
 msgstr "Sprache"
 
-#: options.php:163
-#: options.php:173
+#: options.php:168
+#: options.php:178
 msgid "english"
 msgstr "Englisch"
 
-#: options.php:164
-#: options.php:174
+#: options.php:169
+#: options.php:179
 msgid "german"
 msgstr "Deutsch"
 
-#: options.php:166
+#: options.php:171
 msgid "Choose your preferred language for your texts."
 msgstr "Wählen Sie Ihre bevorzugte Sprache aus."
 
-#: options.php:170
+#: options.php:175
 msgid "Interface language"
 msgstr "Oberflächensprache"
 
-#: options.php:176
+#: options.php:181
 msgid "Choose your preferred language for the Speakpress interface."
 msgstr "Wählen Sie Ihre bevorzugte Sprache für die Oberfläche aus."
 
-#: options.php:180
+#: options.php:185
 msgid "Enable auto play?"
 msgstr "Automatische Wiedergabe aktivieren?"
 
-#: options.php:183
+#: options.php:188
 msgid "When checked, Speakpress will automatically read texts with speak tags after the page is loaded."
 msgstr "Aktivieren Sie diese Option, um von Speak-Tags umschlossene Texte automatisch beim Laden einer Seite vorlesen zu lassen."
 
-#: options.php:188
+#: options.php:193
 msgid "Use speakpress.css?"
 msgstr "speakpress.css benutzen?"
 
-#: options.php:191
+#: options.php:196
 msgid "When checked, the plugin's css file is used. Place own speakpress.css in your template folder to override."
 msgstr "Mit dieser Option wird die Datei speakpress.css eingebettet. Sie können auch Ihre eigene speakr.css schreiben und im Ordner Ihres Themes platzieren."
 
-#: options.php:196
+#: options.php:201
 msgid "Enable widget?"
 msgstr "Widget aktivieren?"
 
-#: options.php:199
+#: options.php:204
 msgid "Check to enable the widget and go to Theme-&gt;Widgets to activate it."
 msgstr "Aktivieren Sie diese Option, um das Widget zu aktivieren."
 
-#: options.php:203
+#: options.php:208
 msgid "Enable widget description?"
 msgstr "Widget-Beschreibung aktivieren?"
 
-#: options.php:206
+#: options.php:211
 msgid "Check to enable a custom description on the widget."
 msgstr "Aktivieren Sie diese Option, um eine kurze Beschreibung für das Widget zu aktivieren."
 
-#: options.php:209
+#: options.php:214
 msgid "Widget description"
 msgstr "Widget-Beschreibung"
 
-#: options.php:212
+#: options.php:217
 msgid "Enter your widget description."
 msgstr "Geben Sie hier die Widget-Beschreibung ein."
 
-#: options.php:215
+#: options.php:220
 msgid "Embed Speakpress button after every post entry?"
 msgstr "Speakpress -Button nach jedem Artikel einbetten?"
 
-#: options.php:218
+#: options.php:223
 msgid "When checked, every post is wrapped between &lt;div&gt; elements and a button will be added to automatically read your posts."
 msgstr "Wenn aktiviert, wird jedem Artikel ein Vorlese-Button hinzugefügt. "
 
-#: options.php:222
+#: options.php:227
 msgid "Embed Speakpress stop button after every post entry?"
 msgstr "Stop-Button nach jedem Artikel einbetten?"
 
-#: options.php:225
+#: options.php:230
 msgid "When checked, also a stop-button will be added to all your posts."
 msgstr "Wenn aktiviert, wird jedem Artikel auch ein Stop-Button hinzugefügt. "
 
-#: options.php:229
+#: options.php:234
 msgid "Button caption"
 msgstr "Buttontext"
 
-#: options.php:232
+#: options.php:237
 msgid "Enter caption for Speakpress buttons."
 msgstr "Geben Sie hier den Text ein, der auf Speakpress-Buttons erscheinen soll."
 
-#: options.php:236
+#: options.php:241
 msgid "Stop button caption"
 msgstr "Stop-Buttontext"
 
-#: options.php:239
+#: options.php:244
 msgid "Enter caption for Stop buttons."
 msgstr "Geben Sie hier den Text ein, der auf Stop-Buttons erscheinen soll."
 
-#: options.php:244
+#: options.php:249
 msgid "Save options"
 msgstr "Optionen speichern"
 
-#: options.php:248
+#: options.php:253
 msgid "You can find news about Speakpress at <a href=\"http://twitter.com/AvatRDev\">our Twitter channel</a> and via hashtag <a href=\"http://twitter.com/search?q=%23Speakpress\">#Speakpress</a>."
 msgstr "Sie können Neuigkeiten rund um Speakpress in <a href=\"http://twitter.com/AvatRDev\">unserem Twitter-Channel</a> finden oder den Hashtag <a href=\"http://twitter.com/search?q=%23Speakpress\">#Speakpress</a> nutzen."
 
-#: options.php:249
+#: options.php:254
 msgid "<br />Speakpress is free - but we would really appriciate it if you would donate to help developing this plugin."
 msgstr "<br />Speakpress ist kostenlos - aber wir freuen uns über jede Spende, die der Entwicklung dieses Plugins hilft."
 
-#: options.php:253
+#: options.php:258
 msgid "https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"
 msgstr "https://www.paypal.com/de_DE/DE/i/btn/btn_donateCC_LG.gif"
 
-#: options.php:253
+#: options.php:258
 msgid "Donate via Paypal"
 msgstr "Spenden Sie via Paypal"
 
@@ -257,23 +257,32 @@ msgstr "Spenden Sie via Paypal"
 msgid "Settings"
 msgstr "Optionen"
 
-#: speakpress.php:193
-#: speakpress.php:196
+#: speakpress.php:248
+#: speakpress.php:253
+#: speakpress.php:257
 msgid "Speakpress will not work yet."
 msgstr "Speakpress wird noch nicht funktionieren."
 
-#: speakpress.php:193
+#: speakpress.php:249
 #, php-format
 msgid "You must <a href=\"%1$s\">activate your domain</a> for it to work."
 msgstr "Sie müssen <a href=\"%1$s\">Ihre Domain aktivieren</a> um dieses Plugin zu nutzen."
 
-#: speakpress.php:196
+#: speakpress.php:254
 msgid "Your activation request was sent but not yet accepted, please be patient."
 msgstr "Domainaktivierungsanfrage wurde gesendet aber noch nicht bearbeitet. Bitte haben Sie ein wenig Geduld."
 
-#: speakpress.php:221
+#: speakpress.php:258
+msgid "Your have to click the confirmation link in the email we sent you."
+msgstr "Sie m&uuml;ssen den Best&auml;tigungslink in der Email, die wir Ihnen gesendet haben anklicken."
+
+#: speakpress.php:290
 msgid "Download Flash player"
 msgstr "Flash Player herunterladen"
+
+#: speakpress.php:290
+msgid "Update Flash <a href=\"http://www.adobe.com/go/getflashplayer\" target=\"_blank\">here</a> to use SpeakR."
+msgstr "Aktualisieren Sie Ihren Flashplayer<a href=\"http://www.adobe.com/go/getflashplayer\" target=\"_blank\">hier</a> um SpeakR nutzen zu k&ouml;nnen."
 
 #: widget.php:19
 msgid "Text2Speech Widget."
@@ -290,6 +299,20 @@ msgstr "Speakpress"
 #: widget.php:62
 msgid "Title:"
 msgstr "Titel"
+
+#~ msgid ""
+#~ "Your server does not support SOAP, so you cannot check the activation "
+#~ "status."
+#~ msgstr ""
+#~ "Ihr Server unterstützt kein SOAP um den Aktivierungsstatus zu überprüfen."
+
+#~ msgid "Domain activation request sent. Please be patient."
+#~ msgstr ""
+#~ "Domainaktivierungsanfrage wurde gesendet. Bitte haben Sie ein wenig "
+#~ "Geduld."
+
+#~ msgid "Activation request sent."
+#~ msgstr "Aktivierungsanfrage wurde gesendet."
 
 #~ msgid "Read"
 #~ msgstr "Vorlesen"
