@@ -27,16 +27,22 @@ Once you requested activation of your domain via the form under 'Settings' -> 'S
 
 1. Uncompress the zip file and upload the folder 'speakpress' to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Active the widget under the 'Themes' -> 'Widget' menu. If you don't use widgets, you can put the following template tag in a theme file:
-<?php if (function_exists('embed_speakpress'))
- embed_speakpress(); ?>
+3. Activate the widget under the 'Themes' -> 'Widget' menu. If you don't use widgets, you can put the following template tag in a theme file:
+&lt;?php if (function_exists('embed_speakpress'))
+ embed_speakpress(); ?&gt;
 4. Configure Speakpress under 'Settings' -> 'Speakpress'
 5. Edit a post via 'Posts' -> 'Edit'. Mark a fragment of text and hit the 'Speakpress' button. Voila - now the fragment is TTS-enabled. (NOTE: pressing the 'Speakpress' button will also add a HTML input for you). Alternatively you can use the auto embed function in the settings which will add a Speakpress button after every post.
-6. Don't forget to register via the activation form, at http://speakr.avatr.net/en or send a mail with your domain-name to speakr@avatr.net
+6. Don't forget to register via the activation form in the wordpress admin area. Alternatively, register at http://speakr.avatr.net/en or send a mail with your domain-name to speakr@avatr.net
 
 == Frequently Asked Questions ==
 
-= The Speakpress widget shows up fine, but nothing happens when I hit the "Play" button. Whats wrong? =
+=  There is no response When clicking on the added "read" buttons on my site. Whats wrong? =
+
+Make sure there is a SpeakR control showing up on your website. Don't forget to activate the widget or use the embedd_speakpress() php function! See installation step #3.
+
+Additionally, check if there is a registration hint on top of your wordpress admin area. You have to register Speakpress with a valid email adress to make the plugin work! 
+
+= The Speakpress widget shows up fine, but nothing happens when I hit the "Play" button on the control. Whats wrong here? =
 
 There are two common mistakes:
 
@@ -64,7 +70,7 @@ We need to know your domain-name to set up a proper SpeakR account. Without this
 
 == Screenshots ==
 
-1. The look of the SpeakR control (green theme, german locale). This is a 245px wide flash component.
+1. The look of the SpeakR control (green theme, german locale). This is a 190px wide flash component.
 2. The settings screen (german version).
 3. The HTML editor is extended by a button. Mark a text fragment and hit this button to enable speech output for the selected region. 
 This will also add a "Read" button below the selection.
