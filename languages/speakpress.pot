@@ -1,0 +1,291 @@
+# Translation of the WordPress plugin Speakpress 1.0.3 by AvatR OHG.
+# Copyright (C) 2010 AvatR OHG
+# This file is distributed under the same license as the Speakpress package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Speakpress 1.0.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/speakpress\n"
+"POT-Creation-Date: 2010-06-06 18:23+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: options.php:36 options.php:55 options.php:106
+msgid "Speakpress options"
+msgstr ""
+
+#: options.php:41
+msgid "updated"
+msgstr ""
+
+#: options.php:46
+msgid "No options updated"
+msgstr ""
+
+#: options.php:56 options.php:100
+msgid "Activate domain"
+msgstr ""
+
+#: options.php:67
+msgid "Domain activated, Speakpress can be used."
+msgstr ""
+
+#: options.php:70
+msgid "Domain activation request sent. Please be patient."
+msgstr ""
+
+#: options.php:78
+msgid "Activation request sent."
+msgstr ""
+
+#: options.php:83
+msgid ""
+"Sending activation request failed. Please manually send an email with your "
+"domain to speakr@avatr.net."
+msgstr ""
+
+#: options.php:87
+msgid ""
+"Your domain must be activated in order to use Speakpress. <br />Please use "
+"the following form to request activation and wait until we accepted your "
+"request."
+msgstr ""
+
+#: options.php:110
+msgid "Quality"
+msgstr ""
+
+#: options.php:113
+msgid "low"
+msgstr ""
+
+#: options.php:114 options.php:125
+msgid "medium"
+msgstr ""
+
+#: options.php:115
+msgid "high"
+msgstr ""
+
+#: options.php:117
+msgid "Choose the quality of the downloaded stream."
+msgstr ""
+
+#: options.php:121
+msgid "Speed"
+msgstr ""
+
+#: options.php:124
+msgid "slow"
+msgstr ""
+
+#: options.php:126
+msgid "fast"
+msgstr ""
+
+#: options.php:128
+msgid "Choose the speed."
+msgstr ""
+
+#: options.php:132
+msgid "Gender for voice"
+msgstr ""
+
+#: options.php:135
+msgid "male"
+msgstr ""
+
+#: options.php:136
+msgid "female"
+msgstr ""
+
+#: options.php:138
+msgid "Choose if you want to hear a male or female voice."
+msgstr ""
+
+#: options.php:142
+msgid "Theme"
+msgstr ""
+
+#: options.php:145
+msgid "cyan"
+msgstr ""
+
+#: options.php:146
+msgid "green"
+msgstr ""
+
+#: options.php:147
+msgid "orange"
+msgstr ""
+
+#: options.php:148
+msgid "white"
+msgstr ""
+
+#: options.php:150
+msgid "Choose your colour theme."
+msgstr ""
+
+#: options.php:154
+msgid "Language"
+msgstr ""
+
+#: options.php:157 options.php:167
+msgid "english"
+msgstr ""
+
+#: options.php:158 options.php:168
+msgid "german"
+msgstr ""
+
+#: options.php:160
+msgid "Choose your preferred language for your texts."
+msgstr ""
+
+#: options.php:164
+msgid "Interface language"
+msgstr ""
+
+#: options.php:170
+msgid "Choose your preferred language for the Speakpress interface."
+msgstr ""
+
+#: options.php:174
+msgid "Enable auto play?"
+msgstr ""
+
+#: options.php:177
+msgid ""
+"When checked, Speakpress will automatically read your texts after the page "
+"is loaded."
+msgstr ""
+
+#: options.php:182
+msgid "Use speakpress.css?"
+msgstr ""
+
+#: options.php:185
+msgid ""
+"When checked, the plugin's css file is used. Place own speakpress.css in "
+"your template folder to override."
+msgstr ""
+
+#: options.php:190
+msgid "Enable widget?"
+msgstr ""
+
+#: options.php:193
+msgid "Check to enable the widget and go to Theme-&gt;Widgets to activate it."
+msgstr ""
+
+#: options.php:197
+msgid "Enable widget description?"
+msgstr ""
+
+#: options.php:200
+msgid "Check to enable a custom description on the widget."
+msgstr ""
+
+#: options.php:203
+msgid "Widget description"
+msgstr ""
+
+#: options.php:206
+msgid "Enter your widget description."
+msgstr ""
+
+#: options.php:209
+msgid "Embed Speakpress button after every post entry?"
+msgstr ""
+
+#: options.php:212
+msgid ""
+"When checked, every post is wrapped between &lt;div&gt; elements and a "
+"button will be added to automatically read your posts."
+msgstr ""
+
+#: options.php:216
+msgid "Button caption"
+msgstr ""
+
+#: options.php:219
+msgid "Enter caption for Speakpress buttons."
+msgstr ""
+
+#: options.php:223
+msgid "Save options"
+msgstr ""
+
+#: options.php:227
+msgid ""
+"You can find news about Speakpress at <a href=\"http://twitter.com/AvatRDev"
+"\">our Twitter channel</a> and via hashtag <a href=\"http://twitter.com/"
+"search?q=%23Speakpress\">#Speakpress</a>."
+msgstr ""
+
+#: options.php:228
+msgid ""
+"<br />Speakpress is free - but we would really appriciate it if you would "
+"donate to help developing this plugin."
+msgstr ""
+
+#: options.php:232
+msgid "Donate via Paypal"
+msgstr ""
+
+#: speakpress.php:65
+msgid "Settings"
+msgstr ""
+
+#: speakpress.php:156
+msgid "Speakpress will not work yet."
+msgstr ""
+
+#: speakpress.php:156
+#, php-format
+msgid "You must <a href=\"%1$s\">activate your domain</a> for it to work."
+msgstr ""
+
+#: speakpress.php:180
+msgid "Download Flash player"
+msgstr ""
+
+#: widget.php:19
+msgid "Text2Speech Widget."
+msgstr ""
+
+#: widget.php:21
+msgid "Speakpress Widget"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Speakpress 1.0.3)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: widget.php:59
+msgid "Speakpress"
+msgstr ""
+
+#: widget.php:62
+msgid "Title:"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Speakpress 1.0.3)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Speakpress 1.0.3)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://speakpress.avatr.net/en"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Text2Speech for your website"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AvatR OHG"
+msgstr ""
